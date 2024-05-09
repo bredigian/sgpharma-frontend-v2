@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Revue';
+  src: url('./assets/fonts/RevueBT-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'QK Marisa';
+  src: url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.eot');
+  src:
+    url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.woff2')
+      format('woff2'),
+    url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.woff')
+      format('woff'),
+    url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.ttf')
+      format('truetype'),
+    url('https://db.onlinewebfonts.com/t/00cdf251fd75becacf476286d6394b88.svg#QK Marisa')
+      format('svg');
+}
