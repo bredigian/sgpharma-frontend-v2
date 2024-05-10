@@ -6,10 +6,13 @@ import Autoplay from 'embla-carousel-autoplay';
 import { CAROUSEL_ITEMS } from '@/constants/carousel-items';
 import CarouselItem from './carousel-item';
 import { EmblaCarouselType } from 'embla-carousel';
+import Image from 'next/image';
+import aboutImage1 from '@/assets/images/home/about-1.png';
+import aboutImage2 from '@/assets/images/home/about-2.png';
 import { cn } from '@/lib/utils';
 import useEmblaCarousel from 'embla-carousel-react';
 
-export const Carousel = () => {
+export const HeaderCarousel = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -64,5 +67,51 @@ export const Carousel = () => {
         ))}
       </div>
     </div>
+  );
+};
+
+export const SecondaryCarousel = () => {
+  const [emblaRef] = useEmblaCarousel({ loop: true });
+
+  return (
+    <>
+      <div
+        className='embla relative z-10 max-w-96 self-center overflow-hidden rounded-3xl md:hidden'
+        ref={emblaRef}
+      >
+        <div className='embla__container flex items-start'>
+          <Image
+            alt='Imagen ilustrativa de procesos medicinales'
+            className='embla__slide aspect-square shrink-0 grow-0 basis-full object-cover'
+            width={1000}
+            height={1000}
+            src={aboutImage1}
+          />
+          <Image
+            alt='Imagen ilustrativa de procesos medicinales'
+            className='embla__slide aspect-square shrink-0 grow-0 basis-full object-cover'
+            width={1000}
+            height={1000}
+            src={aboutImage2}
+          />
+        </div>
+      </div>
+      <div className='hidden w-full items-center justify-center gap-4 md:flex'>
+        <Image
+          alt='Imagen ilustrativa de procesos medicinales'
+          className='h-64 w-fit rounded-3xl object-cover xl:h-96 2xl:h-fit'
+          width={1000}
+          height={1000}
+          src={aboutImage1}
+        />
+        <Image
+          alt='Imagen ilustrativa de procesos medicinales'
+          className='h-64 w-fit rounded-3xl object-cover xl:h-96 2xl:h-fit'
+          width={1000}
+          height={1000}
+          src={aboutImage2}
+        />
+      </div>
+    </>
   );
 };
