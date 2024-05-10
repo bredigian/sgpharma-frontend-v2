@@ -4,6 +4,7 @@ const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/sections/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
@@ -15,6 +16,7 @@ const config: Config = {
       },
 
       colors: {
+        yellow: { sgpharma: '#ffcd00' },
         blue: {
           100: '#1655c6',
           200: '#124196',

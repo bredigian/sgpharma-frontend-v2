@@ -1,6 +1,7 @@
 import { HeaderCarousel, SecondaryCarousel } from '@/components/carousel';
 
 import { ABOUT_ITEMS } from '@/constants/about-items';
+import { Counters } from '@/sections/counters';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,7 +26,7 @@ export default function Home() {
             </p>
             <Link
               href={'/about'}
-              className='hover:bg-yellow w-fit rounded-full bg-blue-300 px-5 py-2 text-center text-xs font-bold text-white hover:text-blue-300 md:text-sm lg:mt-8 lg:px-10 lg:py-4 xl:text-base'
+              className='hover:bg-yellow-sgpharma w-fit rounded-full bg-blue-300 px-5 py-2 text-center text-xs font-bold text-white hover:text-blue-300 md:text-sm lg:mt-8 lg:px-10 lg:py-4 xl:text-base'
             >
               Descubre más
             </Link>
@@ -61,6 +62,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Counters />
     </main>
   );
 }
