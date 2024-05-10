@@ -46,7 +46,7 @@ export default function CarouselItem({
         alt='Componente decorativo'
       />
       <Image
-        className='carousel-item__circle5 absolute bottom-60 right-4 hidden w-4 xl:block 2xl:right-10'
+        className='carousel-item__circle5 absolute bottom-60 right-4 hidden w-4 xl:block 2xl:bottom-80 2xl:right-20'
         src={circle}
         alt='Componente decorativo'
       />
