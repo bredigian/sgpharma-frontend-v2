@@ -1,0 +1,122 @@
+@keyframes circle1 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes homeCircle2 {
+  from {
+    transform: translateX(-40px) translateY(-238px);
+  }
+  to {
+    transform: translateX(-10px) translateY(-198px);
+  }
+}
+
+@keyframes homeCircle3 {
+  from {
+    transform: translateX(56px) translateY(-255px);
+  }
+  to {
+    transform: translateX(86px) translateY(-288px);
+  }
+}
+
+@keyframes homeCircle5 {
+  from {
+    transform: translateX(0px) translateY(0px);
+  }
+  to {
+    transform: translateX(-20px) translateY(-40px);
+  }
+}
+
+@keyframes aboutCircle1 {
+  from {
+    transform: translateY(200px) translateX(-600px);
+  }
+  to {
+    transform: translateY(160px) translateX(-600px);
+  }
+}
+
+@keyframes aboutCircle2 {
+  from {
+    transform: translateY(-100px) translateX(-450px);
+  }
+  to {
+    transform: translateY(-60px) translateX(-450px);
+  }
+}
+
+@keyframes aboutCircle3 {
+  from {
+    transform: translateY(-200px) translateX(100px);
+  }
+  to {
+    transform: translateY(-160px) translateX(60px);
+  }
+}
+
+@keyframes aboutCircle4 {
+  from {
+    transform: translateY(100px) translateX(500px);
+  }
+  to {
+    transform: translateY(60px) translateX(500px);
+  }
+}
+
+@keyframes aboutCircle5 {
+  from {
+    transform: translateY(200px) translateX(200px);
+  }
+  to {
+    transform: translateY(160px) translateX(240px);
+  }
+}
+
+@keyframes popupCircle1 {
+  from {
+    transform: translateY(16px) translateX(80px);
+  }
+  to {
+    transform: translateY(0px) translateX(100px);
+  }
+}
+@keyframes popupCircle2 {
+  from {
+    transform: translateY(56x) translateX(0px);
+  }
+  to {
+    transform: translateY(44px) translateX(-20px);
+  }
+}
+@keyframes popupCircle3 {
+  from {
+    transform: translateY(380px) translateX(-32px);
+  }
+  to {
+    transform: translateY(360px) translateX(-32px);
+  }
+}
+@keyframes popupCircle4 {
+  from {
+    transform: translateY(420px) translateX(435px);
+  }
+  to {
+    transform: translateY(460px) translateX(435px);
+  }
+}
+
+@keyframes popupCircle5 {
+  from {
+    transform: translateY(0px) translateX(380px);
+  }
+  to {
+    transform: translateY(20px) translateX(380px);
+  }
+}

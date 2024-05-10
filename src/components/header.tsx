@@ -10,7 +10,7 @@ import logo from '@/assets/logos/logo.png';
 import { sections } from '@/constants/sections';
 import { usePathname } from 'next/navigation';
 
-const Header = () => {
+export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
 
@@ -33,8 +33,8 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 flex w-dvw flex-col py-6 duration-500 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:px-8',
-        scrolled || showNavbar ? 'bg-white' : 'bg-transparent',
+        'sticky top-0 z-50 flex w-dvw flex-col duration-500 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:p-8',
+        scrolled || showNavbar ? 'bg-white' : 'bg-gray-100',
       )}
     >
       <div
@@ -114,5 +114,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

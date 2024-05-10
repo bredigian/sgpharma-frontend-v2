@@ -1,0 +1,18 @@
+.carousel-item__circle1 {
+  margin-right: 20px;
+  animation: circle1 2s ease-in-out infinite alternate !important;
+}
+.carousel-item__circle2 {
+  margin-right: 20px;
+
+  animation: homeCircle2 2s ease-in-out infinite alternate !important;
+}
+.carousel-item__circle3 {
+  animation: homeCircle3 2s ease-in-out infinite alternate !important;
+}
+.carousel-item__circle4 {
+  animation: circle1 2s ease-in-out infinite alternate !important;
+}
+.carousel-item__circle5 {
+  animation: homeCircle5 2s ease-in-out infinite alternate !important;
+}
