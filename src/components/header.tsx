@@ -33,8 +33,9 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 flex w-dvw flex-col duration-500 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:p-8',
+        'fixed top-0 z-50 flex w-screen flex-col duration-500 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-200',
         scrolled || showNavbar ? 'bg-white' : 'bg-gray-100',
+        scrolled ? 'md:px-8 md:py-3' : 'md:px-8 md:py-6',
       )}
     >
       <div

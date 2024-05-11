@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className='flex w-dvw flex-col gap-12'>
+    <main className='flex flex-col gap-12'>
       <h1 className='-z-50 hidden'>SG Pharma</h1>
       <HeaderCarousel />
       <section className='flex flex-col gap-8 p-4 md:mx-auto md:max-w-[820px] xl:max-w-screen-lg xl:gap-12 2xl:max-w-screen-xl'>
@@ -26,7 +26,7 @@ export default function Home() {
             </p>
             <Link
               href={'/about'}
-              className='hover:bg-yellow-sgpharma w-fit rounded-full bg-blue-300 px-5 py-2 text-center text-xs font-bold text-white hover:text-blue-300 md:text-sm lg:mt-8 lg:px-10 lg:py-4 xl:text-base'
+              className='w-fit rounded-full bg-blue-300 px-5 py-2 text-center text-xs font-bold text-white hover:bg-yellow-sgpharma hover:text-blue-300 md:text-sm lg:mt-8 lg:px-10 lg:py-4 xl:text-base'
             >
               Descubre más
             </Link>

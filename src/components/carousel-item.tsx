@@ -23,7 +23,7 @@ export default function CarouselItem({
   return (
     <div
       id='slider'
-      className='embla__slide relative flex min-h-[495px] w-full min-w-0 shrink-0 grow basis-full flex-col items-center justify-start gap-4 px-8 pb-8 md:min-h-fit md:flex-row md:justify-center lg:gap-12'
+      className='embla__slide relative flex min-h-[495px] w-full min-w-0 shrink-0 grow basis-full flex-col items-center justify-start gap-4 px-8 pb-8 pt-4 md:min-h-fit md:flex-row md:justify-center md:pt-0 lg:gap-12'
     >
       <Image
         className='carousel-item__circle1 absolute bottom-8 left-20 hidden w-6 xl:block'
@@ -129,7 +129,7 @@ export default function CarouselItem({
           }}
         >
           <Link
-            className='rounded-full bg-blue-300 px-5 py-2 text-xs font-bold text-white hover:bg-yellow-300 hover:text-blue-300 lg:px-10 lg:py-4 lg:text-sm xl:text-lg'
+            className='rounded-full bg-blue-300 px-5 py-2 text-xs font-bold text-white hover:bg-yellow-sgpharma hover:text-blue-300 lg:px-10 lg:py-4 lg:text-sm xl:text-lg'
             href={'/products'}
           >
             Conocer más

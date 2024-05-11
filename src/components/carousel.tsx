@@ -46,7 +46,7 @@ export const HeaderCarousel = () => {
 
   return (
     <div
-      className='embla relative z-10 overflow-hidden bg-gray-100'
+      className='embla relative z-10 overflow-hidden bg-gray-100 pt-36 lg:pt-44'
       ref={emblaRef}
     >
       <div className='embla__container flex items-start'>
