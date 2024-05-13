@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import Autoplay from 'embla-carousel-autoplay';
 import { EmblaCarouselType } from 'embla-carousel';
 import Image from 'next/image';
 import { TESTIMONIALS_ITEMS } from '@/constants/testimonials-items';
@@ -22,7 +21,7 @@ export default function HomeTestimonialsSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const onDotClick = useCallback(
     (index: number) => {
