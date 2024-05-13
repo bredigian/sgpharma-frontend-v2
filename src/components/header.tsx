@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { PAGES } from '@/constants/pages';
 import { cn } from '@/lib/utils';
 import logo from '@/assets/logos/logo.png';
-import { sections } from '@/constants/sections';
 import { usePathname } from 'next/navigation';
 
 export const Header = () => {
@@ -70,7 +70,7 @@ export const Header = () => {
         )}
       >
         <ul className='flex w-full flex-col items-center gap-4 font-medium md:flex-row lg:gap-6'>
-          {sections.map((item) => (
+          {PAGES.map((item) => (
             <li
               key={item.id}
               className='overflow-hidden text-ellipsis text-nowrap md:text-sm lg:text-base'

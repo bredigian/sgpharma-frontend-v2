@@ -1,12 +1,12 @@
-type TSection = {
+type TPage = {
   id: string;
   name: string;
   path: `/${string}`;
   value?: string;
-  subsections?: TSection[];
+  subsections?: TPage[];
 };
 
-export const sections: TSection[] = [
+export const PAGES: TPage[] = [
   {
     id: 'home_id',
     name: 'Inicio',
