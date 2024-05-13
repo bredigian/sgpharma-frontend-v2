@@ -55,7 +55,7 @@ export const HeaderCarousel = () => {
         ))}
       </div>
       <div className='embla__dots flex -translate-y-6 items-center justify-center gap-2'>
-        {scrollSnaps.map((_, index) => (
+        {CAROUSEL_ITEMS.map((_, index) => (
           <button
             key={index}
             className={cn(
