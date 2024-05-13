@@ -9,7 +9,7 @@ import Link from 'next/link';
 import faqImage from '@/assets/images/home/faqs.png';
 import { useState } from 'react';
 
-export default function FaqsSection() {
+export default function HomeFaqsSection() {
   const [active, setActive] = useState<number | null>(null);
 
   return (

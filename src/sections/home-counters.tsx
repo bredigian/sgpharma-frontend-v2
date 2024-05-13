@@ -4,7 +4,7 @@ import { COUNTERS } from '@/constants/counters';
 import CountUp from 'react-countup';
 import { cn } from '@/lib/utils';
 
-export const Counters = () => {
+export default function HomeCountersSection() {
   return (
     <aside className='flex w-full flex-col gap-4 bg-yellow-sgpharma p-8 md:flex-row md:flex-wrap md:gap-0 md:gap-y-8 lg:h-[448px] lg:items-center lg:gap-0 lg:p-16 xl:p-24'>
       {COUNTERS.map((item) => (
@@ -34,4 +34,4 @@ export const Counters = () => {
       ))}
     </aside>
   );
-};
+}
