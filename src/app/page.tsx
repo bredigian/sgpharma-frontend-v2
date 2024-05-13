@@ -4,6 +4,7 @@ import { ABOUT_ITEMS } from '@/constants/about-items';
 import Card from '@/components/card';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { Counters } from '@/sections/counters';
+import FaqsSection from '@/sections/home-faqs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TARGETS } from '@/constants/targets';
@@ -190,6 +191,7 @@ export default function Home() {
           Más productos
         </Link>
       </section>
+      <FaqsSection />
     </main>
   );
 }
