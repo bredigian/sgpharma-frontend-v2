@@ -23,6 +23,7 @@ const config: Config = {
           '200-transparent': '#12419695',
           300: '#071f4c',
           400: '#031432',
+          '400-hover': '#072F74',
         },
         gray: {
           100: '#e9eef4',

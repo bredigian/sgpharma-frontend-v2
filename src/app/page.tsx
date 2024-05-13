@@ -3,6 +3,7 @@ import HomeAboutSecondarySection from '@/sections/home-about-secondary';
 import HomeAboutSection from '@/sections/home-about';
 import HomeCountersSection from '@/sections/home-counters';
 import HomeFaqsSection from '@/sections/home-faqs';
+import HomeNewsSection from '@/sections/home-news';
 import HomeProductsSection from '@/sections/home-products';
 import HomeSocialSection from '@/sections/home-social';
 import HomeTestimonialsSection from '@/sections/home-testimonials';
@@ -19,6 +20,7 @@ export default function Home() {
       <HomeFaqsSection />
       <HomeSocialSection />
       <HomeTestimonialsSection />
+      <HomeNewsSection />
     </main>
   );
 }
