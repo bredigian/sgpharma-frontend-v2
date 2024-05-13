@@ -1,6 +1,7 @@
 import { HeaderCarousel } from '@/components/carousel';
 import HomeAboutSecondarySection from '@/sections/home-about-secondary';
 import HomeAboutSection from '@/sections/home-about';
+import HomeContactSection from '@/sections/home-contact';
 import HomeCountersSection from '@/sections/home-counters';
 import HomeFaqsSection from '@/sections/home-faqs';
 import HomeNewsSection from '@/sections/home-news';
@@ -21,6 +22,7 @@ export default function Home() {
       <HomeSocialSection />
       <HomeTestimonialsSection />
       <HomeNewsSection />
+      <HomeContactSection />
     </main>
   );
 }
