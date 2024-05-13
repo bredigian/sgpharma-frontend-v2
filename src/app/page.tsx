@@ -5,6 +5,7 @@ import HomeCountersSection from '@/sections/home-counters';
 import HomeFaqsSection from '@/sections/home-faqs';
 import HomeProductsSection from '@/sections/home-products';
 import HomeSocialSection from '@/sections/home-social';
+import HomeTestimonialsSection from '@/sections/home-testimonials';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HomeProductsSection />
       <HomeFaqsSection />
       <HomeSocialSection />
+      <HomeTestimonialsSection />
     </main>
   );
 }

@@ -11,21 +11,21 @@ export default function HomeSocialSection() {
       <div className='grid max-w-[430px] grid-cols-5 lg:max-w-[520px] xl:gap-4'>
         <Image
           src={whiteListon}
-          alt='Imagén ilustrativa'
+          alt='Imágen ilustrativa'
           width={1000}
           height={1000}
           className='col-span-2 w-min self-center rounded-xl bg-yellow-sgpharma p-2 sm:col-span-1 sm:w-20 sm:p-4'
         />
         <Image
           src={social1}
-          alt='Imagén ilustrativa'
+          alt='Imágen ilustrativa'
           width={1000}
           height={1000}
           className='col-span-3 duration-300 ease-in-out hover:scale-105 sm:col-span-4'
         />
         <Image
           src={social2}
-          alt='Imagén ilustrativa'
+          alt='Imágen ilustrativa'
           width={1000}
           height={1000}
           className='col-span-4 max-w-52 -translate-y-12 duration-300 ease-in-out hover:scale-105 lg:max-w-96 xl:max-w-72'
@@ -64,7 +64,7 @@ export default function HomeSocialSection() {
                 <Image
                   className='h-12 w-12 object-contain md:h-16 md:w-16'
                   src={disc.image}
-                  alt='Imagén ilustrativa'
+                  alt='Imágen ilustrativa'
                   width={1000}
                   height={1000}
                 />

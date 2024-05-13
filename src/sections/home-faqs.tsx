@@ -60,7 +60,7 @@ export default function HomeFaqsSection() {
           <div className='flex flex-col items-center gap-4 sm:flex-row sm:items-start'>
             <div className='relative grid place-items-center'>
               <Image
-                alt='Imagén ilustrativa'
+                alt='Imágen ilustrativa'
                 src={faqImage}
                 width={1000}
                 height={1000}
