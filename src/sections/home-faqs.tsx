@@ -7,10 +7,10 @@ import Dropdown from '@/components/dropdown';
 import Image from 'next/image';
 import Link from 'next/link';
 import faqImage from '@/assets/images/home/faqs.png';
-import { useState } from 'react';
+import { useDropdown } from '@/hooks/use-dropdown';
 
 export default function HomeFaqsSection() {
-  const [active, setActive] = useState<number | null>(null);
+  const { active, handleActive } = useDropdown();
 
   return (
     <section className='flex w-full flex-col items-center bg-gray-100 p-8 md:p-16 lg:p-32'>
@@ -96,7 +96,7 @@ export default function HomeFaqsSection() {
                 title={item.question}
                 description={item.answer}
                 maxHeight={'h-[360px] md:h-[260px] lg:h-[340px]'}
-                handleActive={() => setActive(index === active ? null : index)}
+                handleActive={() => handleActive(index)}
               />
             );
           })}

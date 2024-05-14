@@ -4,10 +4,10 @@ import Dropdown from '@/components/dropdown';
 import Image from 'next/image';
 import { TARGETS } from '@/constants/targets';
 import targetImage from '@/assets/images/about/target.png';
-import { useState } from 'react';
+import { useDropdown } from '@/hooks/use-dropdown';
 
 export default function AboutTargetsSection() {
-  const [active, setActive] = useState<number | null>(null);
+  const { active, handleActive } = useDropdown();
 
   return (
     <section className='flex w-full flex-col gap-4 p-8 md:flex-row md:justify-between md:p-16 lg:p-32 xl:justify-around'>
@@ -35,7 +35,7 @@ export default function AboutTargetsSection() {
                 key={target.id}
                 index={index}
                 active={active as number}
-                handleActive={() => setActive(index === active ? null : index)}
+                handleActive={() => handleActive(index)}
                 title={target.title}
                 description={target.description}
                 maxHeight={'h-[250px]'}
