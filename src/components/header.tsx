@@ -33,19 +33,19 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 flex w-screen flex-col duration-500 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-200',
-        scrolled || showNavbar ? 'bg-white' : 'bg-gray-100',
+        'fixed top-0 z-50 flex w-screen flex-col duration-300 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-300',
+        scrolled || showNavbar ? 'bg-white' : 'bg-transparent',
         scrolled ? 'md:px-8 md:py-3' : 'md:px-8 md:py-6',
       )}
     >
       <div
         className={cn(
-          'flex items-center justify-between px-8 py-6 duration-500 ease-in-out md:justify-evenly md:px-0 md:py-0',
+          'flex items-center justify-between px-8 py-6 duration-300 ease-in-out md:justify-evenly md:px-0 md:py-0',
         )}
       >
         <Bars3Icon
           className={cn(
-            'absolute duration-500 ease-in-out md:-z-20 md:hidden',
+            'absolute duration-300 ease-in-out md:-z-20 md:hidden',
             !showNavbar ? 'opacity-100' : '-z-20 opacity-0',
           )}
           width={35}
@@ -53,7 +53,7 @@ export const Header = () => {
         />
         <XMarkIcon
           className={cn(
-            'absolute duration-500 ease-in-out md:-z-20 md:hidden',
+            'absolute duration-300 ease-in-out md:-z-20 md:hidden',
             !showNavbar ? '-z-20 opacity-0' : 'opacity-100',
           )}
           width={35}
@@ -65,7 +65,7 @@ export const Header = () => {
       </div>
       <nav
         className={cn(
-          'absolute top-36 w-dvw px-8 py-6 duration-500 ease-in-out md:relative md:top-0 md:w-fit md:translate-x-0 md:px-0 md:py-0',
+          'absolute top-36 w-dvw px-8 py-6 duration-300 ease-in-out md:relative md:top-0 md:w-fit md:translate-x-0 md:px-0 md:py-0',
           !showNavbar ? '-translate-x-full' : 'translate-x-0 bg-white',
         )}
       >
@@ -90,7 +90,7 @@ export const Header = () => {
                   </Link>
                   <div
                     className={cn(
-                      'fixed flex -translate-x-4 flex-col gap-2 bg-white p-4 opacity-0 shadow-xl duration-200 ease-in-out',
+                      'fixed flex -translate-x-4 flex-col gap-2 bg-white p-4 opacity-0 shadow-xl duration-300 ease-in-out',
                       !showSubsections
                         ? 'md:invisible md:-z-20 md:opacity-0'
                         : 'md:visible md:z-50 md:opacity-100',
