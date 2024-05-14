@@ -1,12 +1,20 @@
+'use client';
+
 import CountersSection from '@/components/counters';
+import Dropdown from '@/components/dropdown';
 import Image from 'next/image';
+import { TARGETS } from '@/constants/targets';
 import aboutBackground from '@/assets/background/about.png';
 import historyImage from '@/assets/images/about/history.png';
+import targetImage from '@/assets/images/about/target.png';
+import { useState } from 'react';
 
 export default function About() {
+  const [active, setActive] = useState<number | null>(null);
+
   return (
     <main className='flex flex-col'>
-      <div className='grid place-items-center'>
+      <section className='grid place-items-center'>
         <Image
           alt='Fondo de header'
           width={1000}
@@ -25,8 +33,8 @@ export default function About() {
             vidas más sanas.
           </p>
         </div>
-      </div>
-      <div className='relative mx-auto flex max-w-screen-lg flex-col bg-gray-100 p-8 md:flex-row md:flex-wrap md:p-16 lg:p-32 xl:max-w-screen-xl 2xl:max-w-screen-2xl'>
+      </section>
+      <section className='relative mx-auto flex max-w-screen-lg flex-col bg-gray-100 p-8 md:flex-row md:flex-wrap md:p-16 lg:p-32 xl:max-w-screen-xl 2xl:max-w-screen-2xl'>
         <div className='relative mx-auto w-full max-w-96 py-4 md:mx-0 md:w-1/2 md:max-w-[50%] md:px-4 lg:grid lg:place-items-center'>
           <div className='relative lg:max-w-96'>
             <Image
@@ -95,8 +103,46 @@ export default function About() {
           productos éticos, ginecológicos, oftalmológicos y OTC, además de la
           recién incorporada división de Negociaciones Internacionales.
         </p>
-      </div>
+      </section>
       <CountersSection />
+      <section className='flex w-full flex-col gap-4 p-8 md:flex-row md:justify-between md:p-16 lg:p-32 xl:justify-around'>
+        <Image
+          src={targetImage}
+          alt='Imágen ilustrativa'
+          width={1000}
+          height={1000}
+          className='mx-auto w-full max-w-80 object-contain md:mx-0 xl:max-w-[450px]'
+        />
+        <div className='flex flex-col items-start gap-4 md:w-1/2'>
+          <span
+            style={{ letterSpacing: '5px' }}
+            className='text-xs font-semibold text-blue-200 md:text-sm lg:text-base xl:text-lg'
+          >
+            MÁS QUE UNA FARMACÉUTICA
+          </span>
+          <span className='text-3xl font-semibold text-black lg:text-4xl xl:text-5xl 2xl:text-[4.5rem]'>
+            Guiando el camino hacia un futuro saludable y accesible
+          </span>
+          <div className='flex flex-col items-center gap-4'>
+            {TARGETS.map((target, index) => {
+              return (
+                <Dropdown
+                  key={target.id}
+                  index={index}
+                  active={active as number}
+                  handleActive={() =>
+                    setActive(index === active ? null : index)
+                  }
+                  title={target.title}
+                  description={target.description}
+                  maxHeight={'h-[250px]'}
+                  isAbout
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
