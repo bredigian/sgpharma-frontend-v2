@@ -1,3 +1,4 @@
+import CountersSection from '@/components/counters';
 import Image from 'next/image';
 import aboutBackground from '@/assets/background/about.png';
 import historyImage from '@/assets/images/about/history.png';
@@ -64,7 +65,7 @@ export default function About() {
             debemos a un conjunto de principios bien definidos a favor del área
             de salud a nivel regional.
           </p>
-          <p className='text-justify text-xs text-black lg:text-base xl:text-lg'>
+          <p className='lg:xl:leading-nonetext-base text-justify text-xs text-black xl:text-lg'>
             Desde sus orígenes, su giro comercial ha sido la venta y promoción
             de productos medicinales, siempre con una visión de ayuda y acceso
             para toda la población.
@@ -95,6 +96,7 @@ export default function About() {
           recién incorporada división de Negociaciones Internacionales.
         </p>
       </div>
+      <CountersSection />
     </main>
   );
 }
