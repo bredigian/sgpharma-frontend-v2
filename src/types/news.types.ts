@@ -5,5 +5,5 @@ export interface INews {
   DESCRIPCION: string;
   URL: string;
   IMAGEN_PRINCIPAL: string;
-  IMAGE_DETALLE: string;
+  IMAGEN_DETALLE: string;
 }
