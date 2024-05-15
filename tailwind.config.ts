@@ -29,6 +29,7 @@ const config: Config = {
           100: '#e9eef4',
           200: '#54545f',
         },
+        product: '#f0f5f9',
       },
     },
     fontFamily: {

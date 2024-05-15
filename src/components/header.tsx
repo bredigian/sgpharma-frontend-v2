@@ -28,14 +28,15 @@ export const Header = () => {
   }, []);
 
   const path = usePathname();
-  const isProductDetail = path.includes('detail');
+  const isProductDetail = path.includes('SGPHARMAPROD');
 
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 flex w-screen flex-col duration-300 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-300',
+        'max-w-screen top-0 z-50 flex flex-col duration-300 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-300',
         scrolled || showNavbar ? 'bg-white' : 'bg-transparent',
         scrolled ? 'md:px-8 md:py-3' : 'md:px-8 md:py-6',
+        isProductDetail ? 'sticky' : 'fixed',
       )}
     >
       <div
