@@ -1,0 +1,15 @@
+.page-header__circle1 {
+  animation: aboutCircle1 2s ease-in-out infinite alternate !important;
+}
+.page-header__circle2 {
+  animation: aboutCircle2 2s ease-in-out infinite alternate !important;
+}
+.page-header__circle3 {
+  animation: aboutCircle3 2s ease-in-out infinite alternate !important;
+}
+.page-header__circle4 {
+  animation: aboutCircle4 2s ease-in-out infinite alternate !important;
+}
+.page-header__circle5 {
+  animation: aboutCircle5 2s ease-in-out infinite alternate !important;
+}
