@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'max-w-screen top-0 z-50 flex flex-col duration-300 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-300',
+        'max-w-screen top-0 z-50 flex w-full flex-col duration-300 ease-in-out md:flex-row md:items-center md:justify-evenly md:gap-2 md:duration-300',
         scrolled || showNavbar ? 'bg-white' : 'bg-transparent',
         scrolled ? 'md:px-8 md:py-3' : 'md:px-8 md:py-6',
         isProductDetail ? 'sticky' : 'fixed',
