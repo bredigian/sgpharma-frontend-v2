@@ -6,6 +6,7 @@ import { IContactForm } from '@/types/form.types';
 import Loader from './loader';
 import { cn } from '@/lib/utils';
 import { sendEmail } from '@/services/contact.service';
+import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 
 export const HomeContactForm = () => {
@@ -18,9 +19,9 @@ export const HomeContactForm = () => {
   const onSubmit = async (values: IContactForm) => {
     try {
       await sendEmail({ payload: values });
-      console.log('Email enviado exitosamente!');
+      toast.success('Email enviado exitosamente.');
     } catch (error) {
-      if (error instanceof Error) console.error(error.message);
+      if (error instanceof Error) toast.error(error.message);
     }
   };
 
@@ -113,9 +114,9 @@ export const ContactForm = () => {
   const onSubmit = async (values: IContactForm) => {
     try {
       await sendEmail({ payload: values });
-      console.log('Email enviado exitosamente!');
+      toast.success('Email enviado exitosamente.');
     } catch (error) {
-      if (error instanceof Error) console.error(error.message);
+      if (error instanceof Error) toast.error(error.message);
     }
   };
 

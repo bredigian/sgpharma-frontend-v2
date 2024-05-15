@@ -16,12 +16,11 @@ export const sendEmail = async ({ payload }: Props) => {
     });
 
     const result = await response.json();
-    if ('statusCode' in result) return new Error('Error');
+    if ('statusCode' in result)
+      throw new Error('Ocurrió un error al enviar el email.');
 
     return result;
   } catch (error) {
-    if (error) return error;
-
-    return new Error('En este momento el servicio no se encuentra disponible.');
+    throw new Error('En este momento el servicio no se encuentra disponible.');
   }
 };
