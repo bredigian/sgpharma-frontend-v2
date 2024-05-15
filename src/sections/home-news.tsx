@@ -1,8 +1,13 @@
+import HomeNewsItem from '@/components/news-item';
+import { INews } from '@/types/news.types';
 import Link from 'next/link';
+import { getAll } from '@/services/news.service';
 
-export default function HomeNewsSection() {
+export default async function HomeNewsSection() {
+  const news: INews[] | Error = await getAll();
+
   return (
-    <section className='flex w-full flex-col items-center justify-around gap-8 p-8 md:flex-row md:p-16 lg:p-32 xl:gap-16'>
+    <section className='flex w-full flex-col items-center justify-around gap-8 p-8 md:flex-row md:items-start md:p-16 lg:p-32 xl:items-center xl:gap-16'>
       <div
         //   ref={ref}
         //   initial='hidden'
@@ -31,57 +36,15 @@ export default function HomeNewsSection() {
           Ver más
         </Link>
       </div>
-      {/* <div className='col-span-5 flex flex-col gap-8'>
-          {errorNews ? (
-            <h3 className='text-center text-black sm:text-sm lg:text-lg xl:text-xl'>
-              {errorNews}
-            </h3>
-          ) : (
-            news?.map((item) => {
-              const truncatedDescription =
-                item.DESCRIPCION?.length > 175
-                  ? item.DESCRIPCION?.substring(0, 175) + '...'
-                  : item.DESCRIPCION;
-              return (
-                <div
-                  key={item.ID}
-                  className='flex gap-8 sm:max-w-[400px] sm:flex-col sm:items-center md:items-start lg:items-center xl:max-w-[600px] xl:flex-row 2xl:max-w-[800px]'
-                >
-                  <div className='sm:w-[200px] lg:w-[300px] xl:w-[800px]'>
-                    <img
-                      src={item.IMAGEN_PRINCIPAL}
-                      className='w-full'
-                      alt='Imagen que hace referencia a la noticia'
-                    />
-                  </div>
-                  <div className='flex flex-col gap-2 sm:items-center md:items-start lg:items-start'>
-                    <span className='font-bold text-blue-100 sm:text-xs md:text-[14px] lg:text-sm'>
-                      {item.CATEGORIA}
-                    </span>
-                    <span className='font-bold text-black sm:text-center sm:text-sm md:text-start md:text-base lg:text-lg'>
-                      {item.TITULO}
-                    </span>
-                    <p className='text-justify text-gray-200 sm:text-[14px] md:text-sm lg:text-base'>
-                      {truncatedDescription}
-                    </p>
-                    <button
-                      type='button'
-                      className='hover:text-yellow flex items-center gap-2 text-black'
-                    >
-                      <ChevronRightIcon
-                        width={width >= 1024 ? 20 : 16}
-                        color='#ffcd00'
-                      />
-                      <Link to={'/news'} onClick={() => window.scrollTo(0, 0)}>
-                        <h3 className='sm:text-sm lg:text-base'>Leer más</h3>
-                      </Link>
-                    </button>
-                  </div>
-                </div>
-              );
-            })
-          )}
-        </div> */}
+      <div className='flex flex-col gap-8'>
+        {news instanceof Error ? (
+          <span className='text-center font-semibold text-blue-400 md:text-lg xl:text-xl'>
+            {news.message}
+          </span>
+        ) : (
+          (news as INews[]).map((item) => <HomeNewsItem data={item} />)
+        )}
+      </div>
     </section>
   );
 }

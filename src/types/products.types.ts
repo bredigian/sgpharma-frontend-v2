@@ -7,3 +7,8 @@ export interface IProduct {
   IMAGEN: string;
   INSERTO: string;
 }
+
+export interface IFavoriteProduct {
+  id: string;
+  producto: IProduct;
+}
