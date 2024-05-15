@@ -5,3 +5,10 @@ export enum ECATEGORIES {
   ophthalmological = 'Oftalmológica',
   otc = 'OTC',
 }
+
+export type Category =
+  | 'ethic'
+  | 'gynecological'
+  | 'infantile'
+  | 'ophthalmological'
+  | 'otc';

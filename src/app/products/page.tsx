@@ -1,3 +1,4 @@
+import { Category } from '@/types/category.types';
 import PageHeader from '@/components/page-header';
 import ProductsFilter from '@/components/products-filter';
 import ProductsProductsContainerSection from '@/sections/products-products-container';
@@ -6,10 +7,10 @@ import productsBackground from '@/assets/background/products.png';
 export default function Products({
   searchParams,
 }: {
-  searchParams: { filter?: string; type?: string };
+  searchParams: { filter?: string; type?: Category | undefined };
 }) {
   const filter = searchParams?.filter ?? '';
-  const type = searchParams.type ?? '';
+  const type = searchParams.type ?? undefined;
 
   return (
     <main className='flex flex-col'>

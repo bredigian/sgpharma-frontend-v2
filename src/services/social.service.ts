@@ -10,8 +10,6 @@ export const getAll = async () => {
 
     return result;
   } catch (error) {
-    if (error) return error;
-
     return new Error('En este momento el servicio no se encuentra disponible.');
   }
 };
