@@ -1,6 +1,11 @@
+import { IFavoriteProduct } from '@/types/products.types';
 import Link from 'next/link';
+import ProductItem from '@/components/product-item';
+import { getFavorites } from '@/services/products.service';
 
-export default function HomeProductsSection() {
+export default async function HomeProductsSection() {
+  const favorites: IFavoriteProduct[] | Error = await getFavorites();
+
   return (
     <section
       // ref={ref}
@@ -21,34 +26,17 @@ export default function HomeProductsSection() {
           Productos y servicios de primera calidad
         </span>
       </div>
-      {/* <div className='flex flex-wrap items-center justify-center gap-24'>
-          {errorProducts ? (
-            <div className='grid w-full place-items-center sm:h-[280px] lg:h-[420px]'>
-              <h3 className='text-center text-black sm:text-sm lg:text-lg xl:text-xl'>
-                {errorProducts}
-              </h3>
-            </div>
-          ) : loading ? (
-            <div className='grid w-full place-items-center sm:h-[280px] lg:h-[420px]'>
-              <Ring size={60} color='#031432' />
-            </div>
-          ) : (
-            productsFavorites?.map((product, index) => {
-              return (
-                <ProductItem
-                  key={product.ID}
-                  handleHover={handleHover}
-                  index={index}
-                  outHover={() => setProductHovered(null)}
-                  product={product}
-                  productHovered={productHovered}
-                  styles={'sm:h-[280px] lg:h-[420px]'}
-                  isFavorite
-                />
-              );
-            })
-          )}
-        </div> */}
+      <div className='flex flex-wrap items-center justify-center gap-24'>
+        {favorites instanceof Error ? (
+          <span className='text-center font-semibold text-blue-400 md:text-lg xl:text-xl'>
+            {favorites.message}
+          </span>
+        ) : (
+          (favorites as IFavoriteProduct[]).map((item) => (
+            <ProductItem data={item.producto} isFavorite />
+          ))
+        )}
+      </div>
       <Link
         href={'/products'}
         className='mt-8 rounded-full bg-blue-300 px-10 py-4 text-xs font-semibold text-white hover:bg-yellow-sgpharma hover:text-blue-300 md:text-sm xl:text-base'

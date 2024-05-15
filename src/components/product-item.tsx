@@ -4,15 +4,17 @@ import { IProduct } from '@/types/products.types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import favoriteLabel from '@/assets/utils/gold-label.png';
 import { useState } from 'react';
 
 type Props = {
   data: IProduct;
-  index: number;
+  index?: number;
+  isFavorite?: boolean;
 };
 
-export default function ProductItem({ data, index }: Props) {
-  const isPar = index % 2 === 0;
+export default function ProductItem({ data, index, isFavorite }: Props) {
+  const isPar = !isFavorite ? (index as number) % 2 === 0 : undefined;
 
   const [hovered, setHovered] = useState(false);
 
@@ -26,13 +28,15 @@ export default function ProductItem({ data, index }: Props) {
             : 'xl:row-span-4'
       }`}
     >
-      {/* {isFavorite && (
-        <img
-          className='absolute right-0 top-0 z-10 w-20 -translate-y-8 translate-x-8 drop-shadow-xl lg:w-24'
-          src={goldLabel}
+      {isFavorite && (
+        <Image
+          className='absolute right-0 top-0 z-50 w-20 -translate-y-8 translate-x-8 drop-shadow-xl lg:w-24'
+          src={favoriteLabel}
           alt='Etiqueta de destacado'
+          width={1000}
+          height={1000}
         />
-      )} */}
+      )}
       <div className='relative flex h-full w-[220px] flex-col items-start overflow-hidden rounded-2xl md:w-[250px] lg:w-[280px]'>
         <div className='absolute z-0 h-full w-full bg-[#f0f5f9] px-2'></div>
         <Image
