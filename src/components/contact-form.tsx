@@ -5,6 +5,7 @@ import 'ldrs/ring';
 import { IContactForm } from '@/types/form.types';
 import Loader from './loader';
 import { cn } from '@/lib/utils';
+import { sendEmail } from '@/services/contact.service';
 import { useForm } from 'react-hook-form';
 
 export const HomeContactForm = () => {
@@ -15,10 +16,12 @@ export const HomeContactForm = () => {
   } = useForm<IContactForm>();
 
   const onSubmit = async (values: IContactForm) => {
-    console.log(values);
-    await new Promise(async (resolve, reject) => {
-      setTimeout(resolve, 4000);
-    });
+    try {
+      await sendEmail({ payload: values });
+      console.log('Email enviado exitosamente!');
+    } catch (error) {
+      if (error instanceof Error) console.error(error.message);
+    }
   };
 
   return (
@@ -67,7 +70,7 @@ export const HomeContactForm = () => {
               message: 'El número de teléfono es requerido.',
             },
             minLength: {
-              value: 4,
+              value: 10,
               message:
                 'El número de teléfono debe contener al menos 10 caracteres.',
             },
@@ -107,7 +110,14 @@ export const ContactForm = () => {
     formState: { errors, isSubmitting, isValid },
   } = useForm<IContactForm>();
 
-  const onSubmit = async (values: IContactForm) => console.log(values);
+  const onSubmit = async (values: IContactForm) => {
+    try {
+      await sendEmail({ payload: values });
+      console.log('Email enviado exitosamente!');
+    } catch (error) {
+      if (error instanceof Error) console.error(error.message);
+    }
+  };
 
   return (
     <form
@@ -164,7 +174,7 @@ export const ContactForm = () => {
               message: 'El número de teléfono es requerido.',
             },
             minLength: {
-              value: 4,
+              value: 10,
               message:
                 'El número de teléfono debe contener al menos 10 caracteres.',
             },
@@ -183,7 +193,7 @@ export const ContactForm = () => {
               message: 'El mensaje es requerido.',
             },
             minLength: {
-              value: 4,
+              value: 25,
               message: 'El mensaje debe contener al menos 25 caracteres.',
             },
           })}
