@@ -46,6 +46,7 @@ export default function HomeAboutSection() {
                     alt={item.title}
                     width={1000}
                     height={1000}
+                    quality={100}
                   />
                   <span className='text-xs text-black md:text-sm lg:text-base'>
                     {item.title}

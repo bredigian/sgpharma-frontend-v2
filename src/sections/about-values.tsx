@@ -23,6 +23,7 @@ export default function AboutValuesSection() {
                 alt='Imágen ilustrativa'
                 width={1000}
                 height={1000}
+                quality={100}
               />
               <span className='text-sm font-semibold text-black xl:text-base'>
                 {item.title}

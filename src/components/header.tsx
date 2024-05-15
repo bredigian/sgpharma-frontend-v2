@@ -61,7 +61,14 @@ export const Header = () => {
           onClick={() => setShowNavbar(!showNavbar)}
         />
         <Link className='flex w-full justify-center md:w-fit' href={'/'}>
-          <Image src={logo} alt='SG Pharma' className='w-24 lg:w-32' />
+          <Image
+            src={logo}
+            alt='SG Pharma'
+            className='w-24 lg:w-32'
+            width={1000}
+            height={1000}
+            quality={100}
+          />
         </Link>
       </div>
       <nav

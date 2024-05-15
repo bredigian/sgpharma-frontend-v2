@@ -34,6 +34,7 @@ export default async function Footer() {
           alt='Logo de SG Pharma'
           width={1000}
           height={1000}
+          quality={100}
         />
         <div className='flex flex-col items-start gap-4'>
           <div className='flex items-start gap-2'>

@@ -37,6 +37,7 @@ export default function ImageZoom({ id, image }: Props) {
         alt='Imágen decorativa'
         width={1000}
         height={1000}
+        quality={100}
       />
       <Image
         className='absolute hidden w-48 lg:block lg:translate-x-40 lg:translate-y-40 xl:translate-x-[300px] xl:translate-y-[420px]'
@@ -44,6 +45,7 @@ export default function ImageZoom({ id, image }: Props) {
         alt='Imágen decorativa'
         width={1000}
         height={1000}
+        quality={100}
       />
       <div className='product-img flex h-full w-full items-center justify-center'>
         <div
@@ -57,6 +59,7 @@ export default function ImageZoom({ id, image }: Props) {
             alt={`Imágen del producto ${id}`}
             width={1000}
             height={1000}
+            quality={100}
           />
         </div>
         <div
@@ -73,6 +76,7 @@ export default function ImageZoom({ id, image }: Props) {
             }}
             width={1000}
             height={1000}
+            quality={100}
             src={image}
             alt={`Imágen del producto ${id}`}
           />

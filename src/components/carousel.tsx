@@ -46,6 +46,7 @@ export const SecondaryCarousel = () => {
             className='embla__slide aspect-square shrink-0 grow-0 basis-full object-cover'
             width={1000}
             height={1000}
+            quality={100}
             src={aboutImage1}
           />
           <Image
@@ -53,6 +54,7 @@ export const SecondaryCarousel = () => {
             className='embla__slide aspect-square shrink-0 grow-0 basis-full object-cover'
             width={1000}
             height={1000}
+            quality={100}
             src={aboutImage2}
           />
         </div>
@@ -63,6 +65,7 @@ export const SecondaryCarousel = () => {
           className='h-64 w-fit rounded-3xl object-cover xl:h-96 2xl:h-fit'
           width={1000}
           height={1000}
+          quality={100}
           src={aboutImage1}
         />
         <Image
@@ -70,6 +73,7 @@ export const SecondaryCarousel = () => {
           className='h-64 w-fit rounded-3xl object-cover xl:h-96 2xl:h-fit'
           width={1000}
           height={1000}
+          quality={100}
           src={aboutImage2}
         />
       </div>

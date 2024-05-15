@@ -11,6 +11,7 @@ export default function AboutHistorySection() {
             src={historyImage}
             width={1000}
             height={1000}
+            quality={100}
             className='w-full rounded-xl'
           />
           <div className='absolute -bottom-3 -right-3 flex h-[90px] w-[90px] flex-col items-center justify-center rounded-full bg-blue-300 p-2 lg:h-[120px] lg:w-[120px] xl:h-[160px] xl:w-[160px] 2xl:-bottom-8 2xl:-right-16 2xl:h-[200px] 2xl:w-[200px]'>

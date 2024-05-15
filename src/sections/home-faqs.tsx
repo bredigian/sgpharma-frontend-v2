@@ -64,6 +64,7 @@ export default function HomeFaqsSection() {
                 src={faqImage}
                 width={1000}
                 height={1000}
+                quality={100}
                 className='w-[160px] md:w-[240px] lg:w-full'
               />
               <a

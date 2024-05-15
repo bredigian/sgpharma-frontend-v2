@@ -29,26 +29,41 @@ export default function CarouselItem({
         className='carousel-item__circle1 absolute bottom-8 left-20 hidden w-6 xl:block'
         src={circle}
         alt='Componente decorativo'
+        width={1000}
+        height={1000}
+        quality={100}
       />
       <Image
         className='carousel-item__circle2 absolute hidden w-12 xl:block'
         src={circle}
         alt='Componente decorativo'
+        width={1000}
+        height={1000}
+        quality={100}
       />
       <Image
         className='carousel-item__circle3 absolute hidden w-5 xl:block'
         src={circle}
         alt='Componente decorativo'
+        width={1000}
+        height={1000}
+        quality={100}
       />
       <Image
         className='carousel-item__circle4 absolute bottom-20 right-10 hidden w-6 xl:block 2xl:right-48'
         src={circle}
         alt='Componente decorativo'
+        width={1000}
+        height={1000}
+        quality={100}
       />
       <Image
         className='carousel-item__circle5 absolute bottom-60 right-4 hidden w-4 xl:block 2xl:bottom-80 2xl:right-20'
         src={circle}
         alt='Componente decorativo'
+        width={1000}
+        height={1000}
+        quality={100}
       />
       <motion.div
         initial={{ opacity: 0 }}
@@ -142,6 +157,8 @@ export default function CarouselItem({
             className='w-full'
             src={image as string}
             alt={'Imagen de demostracion de SG Pharma'}
+            width={1000}
+            height={1000}
           />
         </div>
         <motion.div
@@ -155,6 +172,7 @@ export default function CarouselItem({
             alt='Liston azul'
             width={100}
             height={100}
+            quality={100}
             className='w-full'
           />
           <span className='text-center text-[10px] font-semibold text-black lg:text-sm xl:text-base'>

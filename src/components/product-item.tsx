@@ -35,6 +35,7 @@ export default function ProductItem({ data, index, isFavorite }: Props) {
           alt='Etiqueta de destacado'
           width={1000}
           height={1000}
+          quality={100}
         />
       )}
       <div className='relative flex h-full w-[220px] flex-col items-start overflow-hidden rounded-2xl md:w-[250px] lg:w-[280px]'>
@@ -44,6 +45,7 @@ export default function ProductItem({ data, index, isFavorite }: Props) {
           alt={`Imágen de ${data.NOMBRE}`}
           width={1000}
           height={1000}
+          quality={100}
           className={cn(
             'my-auto w-full duration-200 ease-in-out',
             hovered ? 'scale-105' : 'scale-100',

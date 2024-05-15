@@ -27,6 +27,7 @@ export default function AboutProductsSection() {
         className='h-full w-full max-w-[688px] md:w-1/2'
         width={1000}
         height={1000}
+        quality={100}
         alt='Imágen que hace referencia a los productos'
       />
     </section>

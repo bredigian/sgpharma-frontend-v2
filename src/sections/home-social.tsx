@@ -14,6 +14,7 @@ export default function HomeSocialSection() {
           alt='Imágen ilustrativa'
           width={1000}
           height={1000}
+          quality={100}
           className='col-span-2 w-min self-center rounded-xl bg-yellow-sgpharma p-2 sm:col-span-1 sm:w-20 sm:p-4'
         />
         <Image
@@ -21,6 +22,7 @@ export default function HomeSocialSection() {
           alt='Imágen ilustrativa'
           width={1000}
           height={1000}
+          quality={100}
           className='col-span-3 duration-300 ease-in-out hover:scale-105 sm:col-span-4'
         />
         <Image
@@ -28,6 +30,7 @@ export default function HomeSocialSection() {
           alt='Imágen ilustrativa'
           width={1000}
           height={1000}
+          quality={100}
           className='col-span-4 max-w-52 -translate-y-12 duration-300 ease-in-out hover:scale-105 lg:max-w-96 xl:max-w-72'
         />
       </div>

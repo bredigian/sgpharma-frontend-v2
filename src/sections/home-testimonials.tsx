@@ -31,6 +31,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial1}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -45,6 +46,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial2}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -59,6 +61,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial3}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -73,6 +76,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial4}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -87,6 +91,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial5}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -101,6 +106,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial6}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -115,6 +121,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial7}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <Image
@@ -129,6 +136,7 @@ export default function HomeTestimonialsSection() {
         src={testimonial8}
         alt='Imágen ilustrativa'
         width={1000}
+        quality={100}
         height={1000}
       />
       <div className='flex flex-col items-center gap-4'>
@@ -145,6 +153,7 @@ export default function HomeTestimonialsSection() {
         alt='Imagen en referencia a las citas de los clientes'
         width={1000}
         height={1000}
+        quality={100}
       />
       <div
         className='embla relative z-10 flex max-w-72 cursor-grab flex-col gap-8 overflow-hidden bg-transparent active:cursor-grabbing md:max-w-96 xl:max-w-screen-sm 2xl:max-w-screen-lg'
@@ -164,6 +173,7 @@ export default function HomeTestimonialsSection() {
                   alt='Imágen ilustrativa'
                   width={1000}
                   height={1000}
+                  quality={100}
                   src={item.avatar}
                   className='w-16 rounded-xl'
                 />

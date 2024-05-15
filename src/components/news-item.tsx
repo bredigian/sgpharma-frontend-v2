@@ -50,6 +50,7 @@ const NewsItemDetail = ({ data, handleActive }: Props) => {
           alt={`Imagen de posteo ${data?.TITULO}`}
           width={1000}
           height={1000}
+          quality={100}
         />
       </div>
     </div>
@@ -72,6 +73,7 @@ export const NewsItem = ({ data }: Props) => {
         alt={`Imagen de ${data.TITULO}`}
         width={1000}
         height={1000}
+        quality={100}
       />
       <div className='flex w-full flex-col items-start gap-2 p-4 md:p-8'>
         <span className='text-[10px] font-medium text-blue-400 md:text-xs lg:text-sm'>
@@ -101,6 +103,7 @@ export const HomeNewsItem = ({ data }: Props) => {
           alt='Imagen que hace referencia a la noticia'
           width={1000}
           height={1000}
+          quality={100}
         />
       </div>
       <div className='flex flex-col items-center gap-2 md:items-start lg:items-start'>
@@ -136,6 +139,7 @@ export const FooterNewsItem = ({ data }: Props) => {
         alt={data.TITULO}
         width={1000}
         height={1000}
+        quality={100}
       />
       <div className='flex flex-col items-start gap-2'>
         <span className='text-[10px] text-white md:text-xs lg:text-sm'>

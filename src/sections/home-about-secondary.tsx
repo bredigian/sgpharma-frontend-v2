@@ -52,6 +52,7 @@ export default function HomeAboutSecondarySection() {
                     alt='Imagen de tarjeta'
                     width={100}
                     height={100}
+                    quality={100}
                   />
                   <span className='w-min text-sm font-semibold lg:text-base'>
                     {target.title}

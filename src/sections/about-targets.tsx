@@ -16,6 +16,7 @@ export default function AboutTargetsSection() {
         alt='Imágen ilustrativa'
         width={1000}
         height={1000}
+        quality={100}
         className='mx-auto w-full max-w-80 object-contain md:mx-0 xl:max-w-[450px]'
       />
       <div className='flex flex-col items-start gap-4 md:w-1/2'>
