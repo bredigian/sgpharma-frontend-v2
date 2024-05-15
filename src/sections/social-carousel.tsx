@@ -44,36 +44,34 @@ export default function SocialCarouselSection({ data }: Props) {
   }, [emblaApi, onInit, onSelect]);
 
   return (
-    <section className='p-8'>
-      <div
-        ref={emblaRef}
-        className='embla relative z-10 mx-auto max-w-[940px] cursor-grab overflow-hidden rounded-xl border-2 border-gray-100 active:cursor-grabbing'
-      >
-        <div className='embla__container flex'>
-          {data.map((item) => (
-            <div
-              key={item.ID}
-              className='embla__slide mx-2 flex shrink-0 grow basis-full flex-col items-center gap-4 p-4 md:flex-row md:items-start'
-            >
-              <Image
-                alt={`Imágen de ${item.ID}`}
-                src={item.IMAGEN_PRINCIPAL}
-                width={1000}
-                height={1000}
-                className='w-full max-w-72 rounded-xl'
-              />
-              <div className='flex flex-col items-center gap-4 md:items-start'>
-                <span className='text-center text-xs font-semibold text-black md:text-start md:text-sm lg:text-lg xl:text-xl'>
-                  {item.TITULO}
-                </span>
-                <p className='text-justify text-[10px] text-gray-200 md:text-sm lg:text-base'>
-                  {item.DESCRIPCION}
-                </p>
-              </div>
+    <div
+      ref={emblaRef}
+      className='embla relative z-10 mx-auto max-w-[940px] cursor-grab overflow-hidden rounded-xl border-2 border-gray-100 active:cursor-grabbing'
+    >
+      <div className='embla__container flex'>
+        {data.map((item) => (
+          <div
+            key={item.ID}
+            className='embla__slide mx-2 flex shrink-0 grow basis-full flex-col items-center gap-4 p-4 md:flex-row md:items-start'
+          >
+            <Image
+              alt={`Imágen de ${item.ID}`}
+              src={item.IMAGEN_PRINCIPAL}
+              width={1000}
+              height={1000}
+              className='w-full max-w-72 rounded-xl'
+            />
+            <div className='flex flex-col items-center gap-4 md:items-start'>
+              <span className='text-center text-xs font-semibold text-black md:text-start md:text-sm lg:text-lg xl:text-xl'>
+                {item.TITULO}
+              </span>
+              <p className='text-justify text-[10px] text-gray-200 md:text-sm lg:text-base'>
+                {item.DESCRIPCION}
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
