@@ -122,7 +122,7 @@ export const ContactForm = () => {
 
   return (
     <form
-      className='flex w-full max-w-[550px] flex-col gap-4 rounded-2xl bg-blue-50 p-8'
+      className='flex w-full max-w-[550px] flex-col gap-6 rounded-2xl bg-blue-50 p-8'
       onSubmit={handleSubmit(onSubmit)}
     >
       <label
