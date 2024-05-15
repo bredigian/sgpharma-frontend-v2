@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 type Props = {
   image: StaticImageData;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export default function PageHeader({ image, title, description }: Props) {
@@ -20,9 +20,11 @@ export default function PageHeader({ image, title, description }: Props) {
         <h1 className='text-center text-3xl font-semibold text-black md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>
           {title}
         </h1>
-        <p className='max-w-[820px] text-center text-xs text-black md:text-sm lg:text-base xl:text-lg'>
-          {description}
-        </p>
+        {description && (
+          <p className='max-w-[820px] text-center text-xs text-black md:text-sm lg:text-base xl:text-lg'>
+            {description}
+          </p>
+        )}
       </div>
     </section>
   );
