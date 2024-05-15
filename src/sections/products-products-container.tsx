@@ -31,7 +31,7 @@ export default async function ProductsProductsContainerSection({
   return (
     <div className='mx-auto flex min-h-[400px] w-fit flex-row flex-wrap justify-center gap-8 p-8 md:p-16 xl:grid xl:grid-cols-6'>
       {products instanceof Error ? (
-        <span className='col-span-full text-base font-medium text-blue-400 lg:text-lg xl:text-xl'>
+        <span className='col-span-full text-center text-base font-medium text-blue-400 lg:text-lg xl:text-xl'>
           {products.message}
         </span>
       ) : (filteredProducts as IProduct[]).length > 0 ? (
