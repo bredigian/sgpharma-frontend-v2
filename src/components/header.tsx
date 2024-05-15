@@ -90,10 +90,10 @@ export const Header = () => {
                   </Link>
                   <div
                     className={cn(
-                      'fixed flex -translate-x-4 flex-col gap-2 bg-white p-4 opacity-0 shadow-xl duration-300 ease-in-out',
+                      'fixed -translate-x-4 flex-col gap-2 bg-white p-4 opacity-0 shadow-xl duration-300 ease-in-out',
                       !showSubsections
-                        ? 'md:invisible md:-z-20 md:opacity-0'
-                        : 'md:visible md:z-50 md:opacity-100',
+                        ? 'hidden md:invisible md:-z-50 md:flex md:opacity-0'
+                        : 'hidden md:visible md:z-50 md:flex md:opacity-100',
                     )}
                   >
                     {item.subsections?.map((subitem) => (
