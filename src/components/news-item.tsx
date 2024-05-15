@@ -7,7 +7,7 @@ type Props = {
   data: INews;
 };
 
-export default function HomeNewsItem({ data }: Props) {
+export const HomeNewsItem = ({ data }: Props) => {
   return (
     <div
       key={data.ID}
@@ -44,4 +44,26 @@ export default function HomeNewsItem({ data }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export const FooterNewsItem = ({ data }: Props) => {
+  return (
+    <Link href={'/news'} className='flex max-w-[350px] items-start gap-4'>
+      <Image
+        className='h-[75px] w-[75px] object-cover'
+        src={data.IMAGEN_PRINCIPAL}
+        alt={data.TITULO}
+        width={1000}
+        height={1000}
+      />
+      <div className='flex flex-col items-start gap-2'>
+        <span className='text-[10px] text-white md:text-xs lg:text-sm'>
+          {data.CATEGORIA}
+        </span>
+        <p className='text-xs text-white md:text-sm lg:text-base'>
+          {data.DESCRIPCION.substring(0, 40).concat('...')}
+        </p>
+      </div>
+    </Link>
+  );
+};

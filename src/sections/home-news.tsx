@@ -1,4 +1,4 @@
-import HomeNewsItem from '@/components/news-item';
+import { HomeNewsItem } from '@/components/news-item';
 import { INews } from '@/types/news.types';
 import Link from 'next/link';
 import { getAll } from '@/services/news.service';

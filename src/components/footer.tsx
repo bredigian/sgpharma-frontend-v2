@@ -1,14 +1,19 @@
-import { BsInstagram, BsTelephoneFill, BsWhatsapp } from 'react-icons/bs';
+import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid';
-import { FaFacebookF, FaLocationDot, FaWaze } from 'react-icons/fa6';
+import { FaFacebookF, FaWaze } from 'react-icons/fa6';
 
+import { FooterNewsItem } from './news-item';
+import { INews } from '@/types/news.types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PAGES } from '@/constants/pages';
+import { getAll } from '@/services/news.service';
 import logoWhite from '@/assets/logos/logo_white.png';
 
-export default function Footer() {
+export default async function Footer() {
   const PRODUCTS_TYPES = PAGES.find((item) => item.id === 'products_id');
+
+  const news: INews[] | Error = await getAll();
 
   return (
     <footer className='flex w-full flex-col-reverse justify-evenly gap-12 bg-blue-400 p-14 md:p-24 lg:flex-row lg:items-start xl:p-36'>
@@ -171,37 +176,13 @@ export default function Footer() {
         <span className='text-sm font-semibold text-white lg:text-base'>
           Noticias
         </span>
-        {/* <ul className='flex flex-col items-start gap-4'>
-          {errorNews ? (
-            <h3 className='text-white text-[10px] md:text-xs lg:max-w-[200px] lg:text-[14px]'>
-              {errorNews}
-            </h3>
-          ) : (
-            newsFormated?.map((item) => {
-              return (
-                <Link
-                  key={item.ID}
-                  to={'/news'}
-                  className='flex max-w-[350px] items-start gap-4'
-                >
-                  <img
-                    className='h-[75px] w-[75px] object-cover'
-                    src={item.IMAGEN_PRINCIPAL}
-                    alt={item.TITULO}
-                  />
-                  <div className='flex flex-col items-start gap-2'>
-                    <span className='text-white text-[10px] md:text-xs lg:text-[14px]'>
-                      {item.CATEGORIA}
-                    </span>
-                    <p className='text-white text-xs md:text-[14px] lg:text-sm'>
-                      {item.DESCRIPCION}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })
-          )}
-        </ul> */}
+        {news instanceof Error ? (
+          <span className='text-xs font-semibold text-white md:text-sm xl:text-base'>
+            {news.message}
+          </span>
+        ) : (
+          (news as INews[]).map((item) => <FooterNewsItem data={item} />)
+        )}
       </div>
     </footer>
   );
