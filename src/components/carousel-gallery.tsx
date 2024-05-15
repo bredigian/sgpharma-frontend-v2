@@ -1,45 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
-
-import { EmblaCarouselType } from 'embla-carousel';
+import CarouselDots from './carousel-dots';
 import { ISocialImage } from '@/types/social.types';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useCarousel } from '@/hooks/use-carousel';
 
 type Props = {
   data: ISocialImage[];
 };
 
 export default function CarouselGallery({ data }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const { selectedIndex, emblaRef, onDotClick } = useCarousel();
 
-  const onDotClick = useCallback(
-    (index: number) => {
-      if (!emblaApi) return;
-      emblaApi.scrollTo(index);
-    },
-    [emblaApi],
-  );
-
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    setScrollSnaps(emblaApi.scrollSnapList());
-  }, []);
-
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onInit(emblaApi);
-    onSelect(emblaApi);
-    emblaApi.on('reInit', onInit);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('select', onSelect);
-  }, [emblaApi, onInit, onSelect]);
   return (
     <div
       ref={emblaRef}
@@ -62,18 +32,12 @@ export default function CarouselGallery({ data }: Props) {
           </div>
         ))}
       </div>
-      <div className='embla__dots mx-auto mt-8 flex w-fit items-center justify-center gap-2 rounded-full bg-white p-4'>
-        {data.map((_, index) => (
-          <button
-            key={index}
-            className={cn(
-              'h-5 rounded-full duration-300 ease-in-out',
-              index === selectedIndex ? 'w-16 bg-blue-400' : 'w-5 bg-blue-200',
-            )}
-            onClick={() => onDotClick(index)}
-          />
-        ))}
-      </div>
+      <CarouselDots
+        data={data}
+        onDotClick={onDotClick}
+        selectedIndex={selectedIndex}
+        styles='mx-auto gap-2 mt-8 rounded-full bg-white p-4'
+      />
     </div>
   );
 }

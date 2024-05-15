@@ -1,53 +1,23 @@
 'use client';
 
 import { ISocial, ISocialImage } from '@/types/social.types';
-import { useCallback, useEffect, useState } from 'react';
 
+import CarouselDots from '@/components/carousel-dots';
 import CarouselGallery from '@/components/carousel-gallery';
-import { EmblaCarouselType } from 'embla-carousel';
 import Image from 'next/image';
 import Modal from '@/components/modal';
-import { cn } from '@/lib/utils';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useCarousel } from '@/hooks/use-carousel';
+import { useState } from 'react';
 
 type Props = {
   data: ISocial[];
 };
 
 export default function SocialCarouselSection({ data }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [active, setActive] = useState(false);
-
   const [gallery, setGallery] = useState<ISocialImage[]>([]);
 
-  const onDotClick = useCallback(
-    (index: number) => {
-      if (!emblaApi) return;
-      emblaApi.scrollTo(index);
-    },
-    [emblaApi],
-  );
-
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    setScrollSnaps(emblaApi.scrollSnapList());
-  }, []);
-
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onInit(emblaApi);
-    onSelect(emblaApi);
-    emblaApi.on('reInit', onInit);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('select', onSelect);
-  }, [emblaApi, onInit, onSelect]);
+  const { selectedIndex, emblaRef, onDotClick } = useCarousel();
 
   return (
     <>
@@ -85,18 +55,11 @@ export default function SocialCarouselSection({ data }: Props) {
           ))}
         </div>
       </div>
-      <div className='embla__dots flex items-center justify-center gap-2'>
-        {data.map((_, index) => (
-          <button
-            key={index}
-            className={cn(
-              'h-5 rounded-full duration-300 ease-in-out',
-              index === selectedIndex ? 'w-16 bg-blue-400' : 'w-5 bg-blue-200',
-            )}
-            onClick={() => onDotClick(index)}
-          />
-        ))}
-      </div>
+      <CarouselDots
+        data={data}
+        onDotClick={onDotClick}
+        selectedIndex={selectedIndex}
+      />
       <Modal show={active} handleModal={() => setActive(false)}>
         <CarouselGallery data={gallery as ISocialImage[]} />
       </Modal>

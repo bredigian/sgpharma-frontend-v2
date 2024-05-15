@@ -1,48 +1,15 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
-
-import Autoplay from 'embla-carousel-autoplay';
 import { CAROUSEL_ITEMS } from '@/constants/carousel-items';
+import CarouselDots from './carousel-dots';
 import CarouselItem from './carousel-item';
-import { EmblaCarouselType } from 'embla-carousel';
 import Image from 'next/image';
 import aboutImage1 from '@/assets/images/home/about-1.png';
 import aboutImage2 from '@/assets/images/home/about-2.png';
-import { cn } from '@/lib/utils';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useCarousel } from '@/hooks/use-carousel';
 
 export const HeaderCarousel = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-
-  const onDotClick = useCallback(
-    (index: number) => {
-      if (!emblaApi) return;
-      emblaApi.scrollTo(index);
-    },
-    [emblaApi],
-  );
-
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    setScrollSnaps(emblaApi.scrollSnapList());
-  }, []);
-
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onInit(emblaApi);
-    onSelect(emblaApi);
-    emblaApi.on('reInit', onInit);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('select', onSelect);
-  }, [emblaApi, onInit, onSelect]);
+  const { selectedIndex, emblaRef, onDotClick } = useCarousel(true);
 
   return (
     <div
@@ -54,24 +21,18 @@ export const HeaderCarousel = () => {
           <CarouselItem key={item.id} {...item} />
         ))}
       </div>
-      <div className='embla__dots flex -translate-y-6 items-center justify-center gap-2'>
-        {CAROUSEL_ITEMS.map((_, index) => (
-          <button
-            key={index}
-            className={cn(
-              'h-5 rounded-full duration-300 ease-in-out',
-              index === selectedIndex ? 'w-16 bg-blue-400' : 'w-5 bg-blue-200',
-            )}
-            onClick={() => onDotClick(index)}
-          />
-        ))}
-      </div>
+      <CarouselDots
+        data={CAROUSEL_ITEMS}
+        onDotClick={onDotClick}
+        selectedIndex={selectedIndex}
+        styles='-translate-y-4 md:-translate-y-5 lg:-translate-y-6 mx-auto'
+      />
     </div>
   );
 };
 
 export const SecondaryCarousel = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true });
+  const { emblaRef } = useCarousel();
 
   return (
     <>
