@@ -5,7 +5,7 @@ export const getAll = async () => {
     const response = await fetch(`${API_URL}/products`, {
       method: 'GET',
       next: {
-        revalidate: 604800,
+        revalidate: 302400,
       },
     });
     const result = await response.json();
