@@ -30,7 +30,7 @@ export default function ProductItem({ data, index, isFavorite }: Props) {
     >
       {isFavorite && (
         <Image
-          className='absolute right-0 top-0 z-50 w-20 -translate-y-8 translate-x-8 drop-shadow-xl lg:w-24'
+          className='absolute right-0 top-0 z-40 w-20 -translate-y-8 translate-x-8 drop-shadow-xl lg:w-24'
           src={favoriteLabel}
           alt='Etiqueta de destacado'
           width={1000}
