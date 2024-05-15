@@ -66,15 +66,13 @@ export const NewsItem = ({ data }: Props) => {
       className='flex h-40 w-[300px] flex-row items-center overflow-hidden rounded-2xl shadow-2xl md:h-[340px] md:w-[260px] md:flex-col xl:h-[400px] xl:w-[320px]'
       onClick={handleActive}
     >
-      <div className='h-full w-[230px] cursor-pointer md:h-[60%] md:w-full'>
-        <Image
-          className='h-full w-full object-cover'
-          src={data.IMAGEN_PRINCIPAL}
-          alt={`Imagen de ${data.TITULO}`}
-          width={1000}
-          height={1000}
-        />
-      </div>
+      <Image
+        className='h-full w-1/2 cursor-pointer object-cover md:h-[60%] md:w-full'
+        src={data.IMAGEN_PRINCIPAL}
+        alt={`Imagen de ${data.TITULO}`}
+        width={1000}
+        height={1000}
+      />
       <div className='flex w-full flex-col items-start gap-2 p-4 md:p-8'>
         <span className='text-[10px] font-medium text-blue-400 md:text-xs lg:text-sm'>
           {data.CATEGORIA}

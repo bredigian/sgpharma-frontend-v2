@@ -50,7 +50,7 @@ export default function SocialCarouselSection({ data }: Props) {
   }, [emblaApi, onInit, onSelect]);
 
   return (
-    <section className='flex flex-col items-center gap-8 p-4'>
+    <>
       <div
         ref={emblaRef}
         className='embla relative z-10 mx-auto max-w-[940px] cursor-grab overflow-hidden rounded-xl border-2 border-gray-100 active:cursor-grabbing'
@@ -100,6 +100,6 @@ export default function SocialCarouselSection({ data }: Props) {
       <Modal show={active} handleModal={() => setActive(false)}>
         <CarouselGallery data={gallery as ISocialImage[]} />
       </Modal>
-    </section>
+    </>
   );
 }

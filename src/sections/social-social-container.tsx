@@ -6,7 +6,7 @@ export default async function SocialSocialContainer() {
   const social: ISocial[] | Error = await getAll();
 
   return (
-    <section className='flex flex-col items-center p-8'>
+    <section className='flex flex-col items-center gap-8 p-4'>
       {social instanceof Error ? (
         <span className='text-base font-medium text-blue-400 lg:text-lg xl:text-xl'>
           {social.message}
