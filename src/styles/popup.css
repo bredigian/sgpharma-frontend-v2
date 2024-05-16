@@ -1,0 +1,17 @@
+#circle-1 {
+  animation: popupCircle1 2s ease-in-out infinite alternate !important;
+}
+#circle-2 {
+  animation: popupCircle2 2s ease-in-out infinite alternate !important;
+}
+#circle-3 {
+  animation: popupCircle3 2s ease-in-out infinite alternate !important;
+}
+#circle-4 {
+  animation: popupCircle4 2s ease-in-out infinite alternate !important;
+}
+@media (min-width: 768px) {
+  #circle-5 {
+    animation: popupCircle5 2s ease-in-out infinite alternate !important;
+  }
+}

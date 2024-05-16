@@ -1,5 +1,9 @@
 import { API_URL } from '@/constants/api';
 
+type Props = {
+  id: string;
+};
+
 export const getAll = async () => {
   try {
     const response = await fetch(`${API_URL}/products`, {
@@ -16,10 +20,6 @@ export const getAll = async () => {
   } catch (error) {
     return new Error('En este momento el servicio no se encuentra disponible.');
   }
-};
-
-type Props = {
-  id: string;
 };
 
 export const getById = async ({ id }: Props) => {
@@ -48,6 +48,21 @@ export const getFavorites = async () => {
     const result = await response.json();
     if ('statusCode' in result)
       return new Error('Ocurrió un error al obtener los productos.');
+
+    return result;
+  } catch (error) {
+    return new Error('En este momento el servicio no se encuentra disponible.');
+  }
+};
+
+export const getLatest = async () => {
+  try {
+    const response = await fetch(`${API_URL}/products/latests`, {
+      method: 'GET',
+    });
+    const result = await response.json();
+    if ('statusCode' in result)
+      return new Error('Ocurrió un error al obtener el producto.');
 
     return result;
   } catch (error) {

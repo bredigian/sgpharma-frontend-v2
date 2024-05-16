@@ -8,11 +8,21 @@ import HomeNewsSection from '@/sections/home-news';
 import HomeProductsSection from '@/sections/home-products';
 import HomeSocialSection from '@/sections/home-social';
 import HomeTestimonialsSection from '@/sections/home-testimonials';
+import { IFavoriteProduct } from '@/types/products.types';
+import Popup from '@/components/popup';
+import { getLatest } from '@/services/products.service';
 
-export default function Home() {
+export default async function Home() {
+  const latestProduct: IFavoriteProduct[] | Error = await getLatest();
+
   return (
     <main className='flex flex-col gap-12'>
       <h1 className='-z-50 hidden'>SG Pharma</h1>
+      {latestProduct instanceof Error ? (
+        <></>
+      ) : (
+        <Popup data={(latestProduct as IFavoriteProduct[])[0].producto} />
+      )}
       <HeaderCarousel />
       <HomeAboutSection />
       <CountersSection />
