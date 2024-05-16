@@ -11,7 +11,7 @@ export default async function ProductsProductsContainerSection({
   query?: string;
   type?: Category | undefined;
 }) {
-  const products: IProduct[] | Error = await getAll();
+  const products = (await getAll()) as IProduct[] | Error;
 
   const filteredProducts =
     products instanceof Error
