@@ -1,6 +1,7 @@
 import CarouselDots from './carousel-dots';
 import { ISocialImage } from '@/types/social.types';
 import Image from 'next/image';
+import { revalidateCache } from '@/lib/utils';
 import { useCarousel } from '@/hooks/use-carousel';
 
 type Props = {
@@ -28,6 +29,7 @@ export default function CarouselGallery({ data }: Props) {
               width={1000}
               height={1000}
               quality={100}
+              onError={() => revalidateCache()}
             />
           </div>
         ))}

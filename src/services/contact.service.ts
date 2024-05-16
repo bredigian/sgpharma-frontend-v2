@@ -1,26 +1,19 @@
-import { API_URL } from '@/constants/api';
 import { IContactForm } from '@/types/form.types';
+import { toAPI } from '@/lib/utils';
 
 type Props = {
   payload: IContactForm;
 };
 
 export const sendEmail = async ({ payload }: Props) => {
-  try {
-    const response = await fetch(`${API_URL}/contact`, {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const response = await toAPI({
+    method: 'GET',
+    route: '/contact',
+    tags: ['data'],
+    body: JSON.stringify(payload),
+    isCSR: true,
+  });
+  if ('statusCode' in response) throw new Error(response.message);
 
-    const result = await response.json();
-    if ('statusCode' in result)
-      throw new Error('Ocurrió un error al enviar el email.');
-
-    return result;
-  } catch (error) {
-    throw new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };

@@ -1,9 +1,10 @@
 'use client';
 
+import { cn, revalidateCache } from '@/lib/utils';
+
 import { IProduct } from '@/types/products.types';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import favoriteLabel from '@/assets/utils/gold-label.png';
 import { useState } from 'react';
 
@@ -50,6 +51,7 @@ export default function ProductItem({ data, index, isFavorite }: Props) {
             'my-auto w-full duration-200 ease-in-out',
             hovered ? 'scale-105' : 'scale-100',
           )}
+          onError={() => revalidateCache()}
         />
         <Link
           href={`products/${data.ID}`}

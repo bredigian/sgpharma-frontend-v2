@@ -5,6 +5,7 @@ import { MouseEvent, useState } from 'react';
 import Image from 'next/image';
 import dottedImage from '@/assets/utils/dotted.png';
 import rectangleImage from '@/assets/utils/rectangle-yellow.png';
+import { revalidateCache } from '@/lib/utils';
 
 type Props = {
   id: string;
@@ -51,7 +52,7 @@ export default function ImageZoom({ id, image }: Props) {
         <div
           onMouseMove={handleHover}
           onMouseOut={() => setCursorPosition({ x: 0, y: 0 })}
-          className='bg-product relative flex h-full w-[200px] cursor-crosshair items-center overflow-hidden rounded-3xl xl:w-[400px]'
+          className='relative flex h-full w-[200px] cursor-crosshair items-center overflow-hidden rounded-3xl bg-product xl:w-[400px]'
         >
           <Image
             className='h-full w-full object-contain xl:h-auto'
@@ -60,6 +61,7 @@ export default function ImageZoom({ id, image }: Props) {
             width={1000}
             height={1000}
             quality={100}
+            onError={() => revalidateCache()}
           />
         </div>
         <div

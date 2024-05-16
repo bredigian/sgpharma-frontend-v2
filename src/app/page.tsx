@@ -13,7 +13,7 @@ import Popup from '@/components/popup';
 import { getLatest } from '@/services/products.service';
 
 export default async function Home() {
-  const latestProduct: IFavoriteProduct[] | Error = await getLatest();
+  const latestProduct = (await getLatest()) as IFavoriteProduct[] | Error;
 
   return (
     <main className='flex flex-col gap-12'>

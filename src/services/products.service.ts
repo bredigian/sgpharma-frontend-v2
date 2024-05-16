@@ -1,71 +1,49 @@
-import { API_URL } from '@/constants/api';
+import { toAPI } from '@/lib/utils';
 
 type Props = {
   id: string;
 };
 
 export const getAll = async () => {
-  try {
-    const response = await fetch(`${API_URL}/products`, {
-      method: 'GET',
-      next: {
-        revalidate: 302400,
-      },
-    });
-    const result = await response.json();
-    if ('statusCode' in result)
-      return new Error('Ocurrió un error al obtener los productos.');
+  const response = await toAPI({
+    method: 'GET',
+    route: '/products',
+    tags: ['data'],
+  });
+  if ('statusCode' in response) return new Error(response.message);
 
-    return result;
-  } catch (error) {
-    return new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };
 
 export const getById = async ({ id }: Props) => {
-  try {
-    const response = await fetch(`${API_URL}/products/detail?id=${id}`, {
-      method: 'GET',
-    });
-    const result = await response.json();
-    if ('statusCode' in result)
-      return new Error('Ocurrió un error al obtener el producto.');
+  const response = await toAPI({
+    method: 'GET',
+    route: `/products/detail?id=${id}`,
+    tags: ['data'],
+  });
+  if ('statusCode' in response) return new Error(response.message);
 
-    return result;
-  } catch (error) {
-    return new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };
 
 export const getFavorites = async () => {
-  try {
-    const response = await fetch(`${API_URL}/products/favorites`, {
-      method: 'GET',
-      next: {
-        revalidate: 302400,
-      },
-    });
-    const result = await response.json();
-    if ('statusCode' in result)
-      return new Error('Ocurrió un error al obtener los productos.');
+  const response = await toAPI({
+    method: 'GET',
+    route: '/products/favorites',
+    tags: ['data'],
+  });
+  if ('statusCode' in response) return new Error(response.message);
 
-    return result;
-  } catch (error) {
-    return new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };
 
 export const getLatest = async () => {
-  try {
-    const response = await fetch(`${API_URL}/products/latests`, {
-      method: 'GET',
-    });
-    const result = await response.json();
-    if ('statusCode' in result)
-      return new Error('Ocurrió un error al obtener el producto.');
+  const response = await toAPI({
+    method: 'GET',
+    route: '/products/latests',
+    tags: ['data'],
+  });
+  if ('statusCode' in response) return new Error(response.message);
 
-    return result;
-  } catch (error) {
-    return new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };

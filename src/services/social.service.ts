@@ -1,19 +1,12 @@
-import { API_URL } from '@/constants/api';
+import { toAPI } from '@/lib/utils';
 
 export const getAll = async () => {
-  try {
-    const response = await fetch(`${API_URL}/welfare`, {
-      method: 'GET',
-      next: {
-        revalidate: 302400,
-      },
-    });
-    const result = await response.json();
-    if ('statusCode' in result)
-      return new Error('Ocurrió un error la obtener las noticias.');
+  const response = await toAPI({
+    method: 'GET',
+    route: '/welfare',
+    tags: ['data'],
+  });
+  if ('statusCode' in response) return new Error(response.message);
 
-    return result;
-  } catch (error) {
-    return new Error('En este momento el servicio no se encuentra disponible.');
-  }
+  return response;
 };

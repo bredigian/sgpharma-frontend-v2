@@ -3,7 +3,7 @@ import SocialCarouselSection from './social-carousel';
 import { getAll } from '@/services/social.service';
 
 export default async function SocialSocialContainer() {
-  const social: ISocial[] | Error = await getAll();
+  const social = (await getAll()) as ISocial[] | Error;
 
   return (
     <section className='flex flex-col items-center gap-8 p-8'>

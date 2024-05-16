@@ -6,6 +6,7 @@ import CarouselDots from '@/components/carousel-dots';
 import CarouselGallery from '@/components/carousel-gallery';
 import Image from 'next/image';
 import Modal from '@/components/modal';
+import { revalidateCache } from '@/lib/utils';
 import { useCarousel } from '@/hooks/use-carousel';
 import { useState } from 'react';
 
@@ -42,6 +43,7 @@ export default function SocialCarouselSection({ data }: Props) {
                 height={1000}
                 quality={100}
                 className='w-full max-w-72 rounded-xl'
+                onError={() => revalidateCache()}
               />
               <div className='flex flex-col items-center gap-4 md:items-start'>
                 <span className='text-center text-xs font-semibold text-black md:text-start md:text-sm lg:text-lg xl:text-xl'>

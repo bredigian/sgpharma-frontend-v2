@@ -22,17 +22,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const detail = await getById({ id: params.id as string });
 
   return {
-    title: `${detail.NOMBRE} | SG Pharma`,
-    description: detail.DESCRIPCION,
+    title: `${(detail as IProduct).NOMBRE} | SG Pharma`,
+    description: (detail as IProduct).DESCRIPCION,
     keywords: [
-      `SG Pharma, SG Medicinas, Producto, Productos, Medicina, Medicamentos, ${detail.NOMBRE}`,
+      `SG Pharma, SG Medicinas, Producto, Productos, Medicina, Medicamentos, ${(detail as IProduct).NOMBRE}`,
     ],
     icons: '../../favicon.ico',
   };
 }
 
 export default async function ProductDetail({ params }: Props) {
-  const detail: IProduct | Error = await getById({ id: params.id as string });
+  const detail = (await getById({ id: params.id as string })) as
+    | IProduct
+    | Error;
 
   if (detail instanceof Error)
     return (

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { IoMdClose } from 'react-icons/io';
 import Link from 'next/link';
 import circleYellow from '@/assets/utils/circle-yellow.png';
+import { revalidateCache } from '@/lib/utils';
 import { usePopup } from '@/store/popup.store';
 
 type Props = {
@@ -97,6 +98,7 @@ export default function Popup({ data }: Props) {
             width={1000}
             height={1000}
             quality={100}
+            onError={() => revalidateCache()}
           />
           <button
             onClick={hide}
