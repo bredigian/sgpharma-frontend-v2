@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getAll } from '@/services/news.service';
 
 export default async function HomeNewsSection() {
-  const news: INews[] | Error = await getAll();
+  const news = (await getAll()) as INews[] | Error;
 
   return (
     <section className='flex w-full flex-col items-center justify-around gap-8 p-8 md:flex-row md:items-start md:p-16 lg:p-32 xl:items-center xl:gap-16'>

@@ -4,7 +4,7 @@ import ProductItem from '@/components/product-item';
 import { getFavorites } from '@/services/products.service';
 
 export default async function HomeProductsSection() {
-  const favorites: IFavoriteProduct[] | Error = await getFavorites();
+  const favorites = (await getFavorites()) as IFavoriteProduct[] | Error;
 
   return (
     <section
