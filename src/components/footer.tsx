@@ -13,7 +13,7 @@ import logoWhite from '@/assets/logos/logo_white.png';
 export default async function Footer() {
   const PRODUCTS_TYPES = PAGES.find((item) => item.id === 'products_id');
 
-  const news: INews[] | Error = await getAll();
+  const news = (await getAll()) as INews[] | Error;
 
   return (
     <footer className='flex w-full flex-col-reverse justify-evenly gap-12 bg-blue-400 p-14 md:p-24 lg:flex-row lg:items-start xl:p-36'>
