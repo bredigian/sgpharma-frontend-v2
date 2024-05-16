@@ -7,10 +7,10 @@ import productsBackground from '@/assets/background/products.png';
 export default function Products({
   searchParams,
 }: {
-  searchParams: { filter?: string; type?: Category | undefined };
+  searchParams: { filter?: string; type?: Category | '' };
 }) {
   const filter = searchParams?.filter ?? '';
-  const type = searchParams.type ?? undefined;
+  const type = searchParams?.type ?? '';
 
   return (
     <main className='flex flex-col'>
@@ -19,7 +19,7 @@ export default function Products({
         description='Conoce cada una de nuestras líneas especializadas con medicamentos de calidad europea creados para apoyarte en el cuidado de la salud'
         image={productsBackground}
       />
-      <ProductsFilter type={type} />
+      <ProductsFilter />
       <ProductsProductsContainerSection query={filter} type={type} />
     </main>
   );

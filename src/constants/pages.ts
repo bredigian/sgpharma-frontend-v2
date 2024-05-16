@@ -1,8 +1,10 @@
+import { Category } from '@/types/category.types';
+
 type TPage = {
   id: string;
   name: string;
   path: `/${string}`;
-  value?: string;
+  value?: Category;
   subsections?: TPage[];
 };
 

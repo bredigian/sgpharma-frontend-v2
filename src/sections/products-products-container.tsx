@@ -9,7 +9,7 @@ export default async function ProductsProductsContainerSection({
   type,
 }: {
   query?: string;
-  type?: Category | undefined;
+  type?: Category | '';
 }) {
   const products = (await getAll()) as IProduct[] | Error;
 
