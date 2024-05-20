@@ -1,10 +1,26 @@
+'use client';
+
 import Image from 'next/image';
 import historyImage from '@/assets/images/about/history.png';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 export default function AboutHistorySection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='relative mx-auto flex max-w-screen-lg flex-col bg-gray-100 p-8 md:flex-row md:flex-wrap md:p-16 lg:p-32 xl:max-w-screen-xl 2xl:max-w-screen-2xl'>
-      <div className='relative mx-auto w-full max-w-96 py-4 md:mx-0 md:w-1/2 md:max-w-[50%] md:px-4 lg:grid lg:place-items-center'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5 }}
+        className='relative mx-auto w-full max-w-96 py-4 md:mx-0 md:w-1/2 md:max-w-[50%] md:px-4 lg:grid lg:place-items-center'
+      >
         <div className='relative lg:max-w-96'>
           <Image
             alt='Imágen ilustrativa'
@@ -23,8 +39,18 @@ export default function AboutHistorySection() {
             </span>
           </div>
         </div>
-      </div>
-      <div className='flex flex-col gap-4 py-4 md:w-1/2 md:px-4'>
+      </motion.div>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className='flex flex-col gap-4 py-4 md:w-1/2 md:px-4'
+      >
         <div className='mt-4 flex flex-col gap-4'>
           <span className=' text-nowrap text-xs font-semibold tracking-[5px] text-blue-200 lg:text-sm xl:text-base'>
             INNOVACIÓN Y EXCELENCIA
@@ -48,31 +74,71 @@ export default function AboutHistorySection() {
           productos medicinales, siempre con una visión de ayuda y acceso para
           toda la población.
         </p>
-      </div>
-      <p className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'>
+      </motion.div>
+      <motion.p
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'
+      >
         La calidad y eficiencia de nuestros productos se debe a que son creados
         con materias primas europeas, con las cuales hasta el día de hoy se
         siguen elaborando. Su composición es única e inigualable lo que nos hace
         distinguir y destacar en el mercado, ofreciendo soluciones rápidas y
         eficaces.
-      </p>
-      <p className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'>
+      </motion.p>
+      <motion.p
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'
+      >
         En la cual trabajamos una gama de productos a exportar e importar;
         contamos también con la División de Representaciones, que busca
         incorporar representaciones internacionales, para poder ofrecer y
         comercializar nuestros productos en todo el istmo Centroamericano.
-      </p>
-      <p className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'>
+      </motion.p>
+      <motion.p
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'
+      >
         SG Pharma y su estandarte principal siendo, la calidad de sus productos,
         permite mantener procesos ágiles frente al dinamismo del mercado,
         ofreciendo productos innovadores y vanguardistas.
-      </p>
-      <p className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'>
+      </motion.p>
+      <motion.p
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className='py-4 text-justify text-xs text-black md:w-1/2 md:px-4 lg:text-base xl:text-lg'
+      >
         Con el transcurso de los años se han incrementado las divisiones
         internas de la empresa, contando actualmente con las divisiones de
         productos éticos, ginecológicos, oftalmológicos y OTC, además de la
         recién incorporada división de Negociaciones Internacionales.
-      </p>
+      </motion.p>
     </section>
   );
 }

@@ -1,11 +1,27 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import productsImage from '@/assets/images/about/products.png';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 export default function AboutProductsSection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='flex flex-col gap-4 md:flex-row md:items-center lg:justify-between'>
-      <div className='flex flex-col gap-4 p-8 md:w-1/2 md:p-16 2xl:ml-32'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className='flex flex-col gap-4 p-8 md:w-1/2 md:p-16 2xl:ml-32'
+      >
         <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm lg:text-base xl:text-lg'>
           SG PHARMA
         </span>
@@ -21,7 +37,7 @@ export default function AboutProductsSection() {
         >
           Ver productos
         </Link>
-      </div>
+      </motion.div>
       <Image
         src={productsImage}
         className='h-full w-full max-w-[688px] md:w-1/2'

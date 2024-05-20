@@ -1,6 +1,10 @@
+'use client';
+
 import Image, { StaticImageData } from 'next/image';
 
 import circleYellow from '@/assets/utils/circle-yellow.png';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 type Props = {
   image: StaticImageData;
@@ -9,6 +13,8 @@ type Props = {
 };
 
 export default function PageHeader({ image, title, description }: Props) {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='relative grid place-items-center'>
       <Image
@@ -62,13 +68,33 @@ export default function PageHeader({ image, title, description }: Props) {
         quality={100}
       />
       <div className='absolute flex flex-col items-center gap-6 p-8'>
-        <h1 className='text-center text-3xl font-semibold text-black md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'>
+        <motion.h1
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ duration: 0.5 }}
+          className='text-center text-3xl font-semibold text-black md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl'
+        >
           {title}
-        </h1>
+        </motion.h1>
         {description && (
-          <p className='max-w-[820px] text-center text-xs text-black md:text-sm lg:text-base xl:text-lg'>
+          <motion.p
+            ref={ref}
+            initial='hidden'
+            animate={controls}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className='max-w-[820px] text-center text-xs text-black md:text-sm lg:text-base xl:text-lg'
+          >
             {description}
-          </p>
+          </motion.p>
         )}
       </div>
     </section>
