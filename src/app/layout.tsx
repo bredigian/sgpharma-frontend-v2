@@ -1,6 +1,7 @@
 import './globals.css';
 
 import Footer from '@/components/footer';
+import GoogleAnalytics from '@/components/google-analytics';
 import { Header } from '@/components/header';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
@@ -23,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <GoogleAnalytics />
       <body className={montserrat.className}>
         <Header />
         {children}
