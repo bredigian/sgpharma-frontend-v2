@@ -32,7 +32,9 @@ export default async function HomeNewsSection() {
             {news.message}
           </span>
         ) : (
-          (news as INews[]).map((item) => <HomeNewsItem data={item} />)
+          (news as INews[]).map((item, index) => (
+            <HomeNewsItem data={item} index={index} />
+          ))
         )}
       </div>
     </section>

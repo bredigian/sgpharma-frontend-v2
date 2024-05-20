@@ -106,9 +106,20 @@ export const NewsItem = ({ data, index }: Props) => {
   );
 };
 
-export const HomeNewsItem = ({ data }: Props) => {
+export const HomeNewsItem = ({ data, index }: Props) => {
+  const { ref, controls } = useCustomAnimation();
+  const delay = (index as number) * 0.25;
+
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay }}
       key={data.ID}
       className='flex max-w-[400px] flex-col items-center gap-8 md:items-start lg:items-center xl:max-w-[600px] xl:flex-row 2xl:max-w-[800px]'
     >
@@ -143,7 +154,7 @@ export const HomeNewsItem = ({ data }: Props) => {
           </Link>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
