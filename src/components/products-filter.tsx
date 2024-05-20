@@ -5,9 +5,13 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Category } from '@/types/category.types';
 import { PAGES } from '@/constants/pages';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useDebouncedCallback } from 'use-debounce';
 
 export default function ProductsFilter() {
+  const { ref, controls } = useCustomAnimation();
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { replace, refresh } = useRouter();
@@ -32,7 +36,15 @@ export default function ProductsFilter() {
 
   return (
     <div className='flex flex-col items-center gap-6 p-8 md:p-16'>
-      <input
+      <motion.input
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.75 }}
         type='text'
         placeholder='Filtra por nombre'
         autoComplete='off'
@@ -40,7 +52,17 @@ export default function ProductsFilter() {
         defaultValue={searchParams.get('filter')?.toString()}
         className='w-full max-w-screen-sm rounded-full border-2 border-blue-400 px-4 py-2 text-sm lg:text-base xl:text-lg'
       />
-      <ul className='flex w-full flex-wrap items-center justify-center gap-3 lg:gap-6'>
+      <motion.ul
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className='flex w-full flex-wrap items-center justify-center gap-3 lg:gap-6'
+      >
         <button
           key={'all'}
           onClick={() => onChangeType('all')}
@@ -67,7 +89,7 @@ export default function ProductsFilter() {
             </button>
           ),
         )}
-      </ul>
+      </motion.ul>
     </div>
   );
 }

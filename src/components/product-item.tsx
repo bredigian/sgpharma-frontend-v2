@@ -6,6 +6,8 @@ import { IProduct } from '@/types/products.types';
 import Image from 'next/image';
 import Link from 'next/link';
 import favoriteLabel from '@/assets/utils/gold-label.png';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useState } from 'react';
 
 type Props = {
@@ -15,12 +17,22 @@ type Props = {
 };
 
 export default function ProductItem({ data, index, isFavorite }: Props) {
+  const { ref, controls } = useCustomAnimation();
+
   const isPar = !isFavorite ? (index as number) % 2 === 0 : undefined;
 
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay: 0.25 }}
       className={`relative xl:col-span-2 ${
         index === 3
           ? 'xl:row-span-3'
@@ -67,6 +79,6 @@ export default function ProductItem({ data, index, isFavorite }: Props) {
           </span>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
