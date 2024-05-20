@@ -1,8 +1,12 @@
+'use client';
+
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid';
 
 import { ContactForm } from '@/components/contact-form';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { ReactNode } from 'react';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 const Icon = ({ children }: { children: ReactNode }) => {
   return (
@@ -13,9 +17,21 @@ const Icon = ({ children }: { children: ReactNode }) => {
 };
 
 export default function ContactInformationSection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='flex w-full flex-col items-center justify-center gap-6 p-8 md:flex-row xl:p-16'>
-      <div className='flex flex-col items-start gap-6'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className='flex flex-col items-start gap-6'
+      >
         <h1 className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-[14px] lg:text-sm xl:text-lg'>
           CONTÁCTANOS
         </h1>
@@ -73,7 +89,7 @@ export default function ContactInformationSection() {
             </p>
           </a>
         </div>
-      </div>
+      </motion.div>
       <ContactForm />
     </section>
   );

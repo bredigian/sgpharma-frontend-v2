@@ -5,8 +5,10 @@ import 'ldrs/ring';
 import { IContactForm } from '@/types/form.types';
 import Loader from './loader';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { sendEmail } from '@/services/contact.service';
 import { toast } from 'sonner';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useForm } from 'react-hook-form';
 
 export const HomeContactForm = () => {
@@ -111,6 +113,8 @@ export const ContactForm = () => {
     formState: { errors, isSubmitting, isValid },
   } = useForm<IContactForm>();
 
+  const { ref, controls } = useCustomAnimation();
+
   const onSubmit = async (values: IContactForm) => {
     try {
       await sendEmail({ payload: values });
@@ -121,7 +125,15 @@ export const ContactForm = () => {
   };
 
   return (
-    <form
+    <motion.form
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay: 0.5 }}
       className='flex w-full max-w-[550px] flex-col gap-6 rounded-2xl bg-blue-50 p-8'
       onSubmit={handleSubmit(onSubmit)}
     >
@@ -222,6 +234,6 @@ export const ContactForm = () => {
           </>
         )}
       </button>
-    </form>
+    </motion.form>
   );
 };
