@@ -17,17 +17,7 @@ export default async function Footer() {
 
   return (
     <footer className='flex w-full flex-col-reverse justify-evenly gap-12 bg-blue-400 p-14 md:p-24 lg:flex-row lg:items-start xl:p-36'>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className='flex max-w-[260px] flex-col items-start gap-8 lg:mt-36 lg:gap-4'
-      >
+      <div className='flex max-w-[260px] flex-col items-start gap-8 lg:mt-36 lg:gap-4'>
         <Image
           className='w-14 lg:mb-8 lg:w-28'
           src={logoWhite}
@@ -107,17 +97,7 @@ export default async function Footer() {
           Designed with love by Azul Marino © 2023
         </a>
       </div>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className='flex flex-col items-start gap-4 lg:mt-36'
-      >
+      <div className='flex flex-col items-start gap-4 lg:mt-36'>
         <span className='text-sm font-semibold text-white lg:text-base'>
           Productos
         </span>
@@ -135,17 +115,7 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className='flex flex-col items-start gap-4 lg:mt-36'
-      >
+      <div className='flex flex-col items-start gap-4 lg:mt-36'>
         <span className='text-sm font-semibold text-white lg:text-base'>
           Ir a
         </span>
@@ -163,17 +133,7 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className='items-sart flex flex-col gap-4 lg:mt-36'
-      >
+      <div className='items-sart flex flex-col gap-4 lg:mt-36'>
         <span className='text-sm font-semibold text-white lg:text-base'>
           Noticias
         </span>
