@@ -7,8 +7,8 @@ type Props = {
 export default function NewsContainer({ data }: Props) {
   return (
     <>
-      {data.map((item) => (
-        <NewsItem data={item} />
+      {data.map((item, index) => (
+        <NewsItem data={item} index={index} />
       ))}
     </>
   );

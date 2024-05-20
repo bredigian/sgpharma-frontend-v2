@@ -6,12 +6,15 @@ import { INews } from '@/types/news.types';
 import Image from 'next/image';
 import Link from 'next/link';
 import Modal from './modal';
+import { motion } from 'framer-motion';
 import { revalidateCache } from '@/lib/utils';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useState } from 'react';
 
 type Props = {
   data: INews;
   handleActive?: () => void;
+  index?: number;
 };
 
 const NewsItemDetail = ({ data, handleActive }: Props) => {
@@ -59,13 +62,23 @@ const NewsItemDetail = ({ data, handleActive }: Props) => {
   );
 };
 
-export const NewsItem = ({ data }: Props) => {
-  const [active, setActive] = useState(false);
+export const NewsItem = ({ data, index }: Props) => {
+  const { ref, controls } = useCustomAnimation();
+  const delay = (index as number) * 0.25;
 
+  const [active, setActive] = useState(false);
   const handleActive = () => setActive(!active);
 
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay }}
       className='flex h-40 w-[300px] flex-row items-center overflow-hidden rounded-2xl shadow-2xl md:h-[340px] md:w-[260px] md:flex-col xl:h-[400px] xl:w-[320px]'
       onClick={handleActive}
     >
@@ -89,7 +102,7 @@ export const NewsItem = ({ data }: Props) => {
       <Modal show={active} handleModal={() => setActive(false)}>
         <NewsItemDetail data={data} handleActive={handleActive} />
       </Modal>
-    </div>
+    </motion.div>
   );
 };
 
