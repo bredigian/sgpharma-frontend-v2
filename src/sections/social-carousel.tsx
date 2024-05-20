@@ -6,8 +6,10 @@ import CarouselDots from '@/components/carousel-dots';
 import CarouselGallery from '@/components/carousel-gallery';
 import Image from 'next/image';
 import Modal from '@/components/modal';
+import { motion } from 'framer-motion';
 import { revalidateCache } from '@/lib/utils';
 import { useCarousel } from '@/hooks/use-carousel';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useState } from 'react';
 
 type Props = {
@@ -19,6 +21,7 @@ export default function SocialCarouselSection({ data }: Props) {
   const [gallery, setGallery] = useState<ISocialImage[]>([]);
 
   const { selectedIndex, emblaRef, onDotClick } = useCarousel();
+  const { ref, controls } = useCustomAnimation();
 
   return (
     <>
@@ -26,7 +29,17 @@ export default function SocialCarouselSection({ data }: Props) {
         ref={emblaRef}
         className='embla relative z-10 mx-auto max-w-[940px] cursor-grab overflow-hidden rounded-xl border-2 border-gray-100 active:cursor-grabbing'
       >
-        <div className='embla__container flex'>
+        <motion.div
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ duration: 0.5, delay: 0.75 }}
+          className='embla__container flex'
+        >
           {data.map((item) => (
             <div
               key={item.ID}
@@ -55,7 +68,7 @@ export default function SocialCarouselSection({ data }: Props) {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
       <CarouselDots
         data={data}
