@@ -1,6 +1,8 @@
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 type Props = {
   title: string;
@@ -21,15 +23,21 @@ export default function Dropdown({
   maxHeight,
   isAbout,
 }: Props) {
+  const { ref, controls } = useCustomAnimation();
+
   const isActive = active === index;
+  const delay = index * 0.25;
 
   return (
-    <div
-      //   className={`flex flex-col items-start gap-4 rounded-2xl bg-white px-10 py-4 shadow-xl duration-300 ease-in-out ${
-      //     active === index
-      //       ? maxHeight
-      //       : `${isAbout ? 'h-[56px]' : 'h-[80px]'} md:h-[56px] lg:h-[58px]`
-      //   } max-w-[450px] overflow-hidden`}
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay }}
       className={cn(
         'flex max-w-[420px] flex-col items-start gap-4 overflow-hidden rounded-2xl bg-white px-10 py-4 shadow-xl duration-300 ease-in-out',
         isActive ? 'h-fit' : 'h-[52px] xl:h-[60px]',
@@ -60,6 +68,6 @@ export default function Dropdown({
       <p className='text-justify text-xs text-gray-200 md:text-sm lg:text-base'>
         {description}
       </p>
-    </div>
+    </motion.div>
   );
 }

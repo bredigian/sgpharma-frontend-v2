@@ -3,6 +3,7 @@
 import CarouselDots from '@/components/carousel-dots';
 import Image from 'next/image';
 import { TESTIMONIALS_ITEMS } from '@/constants/testimonials-items';
+import { motion } from 'framer-motion';
 import testimonial1 from '@/assets/images/home/testimonial-1.png';
 import testimonial2 from '@/assets/images/home/testimonial-2.png';
 import testimonial3 from '@/assets/images/home/testimonial-3.png';
@@ -13,20 +14,25 @@ import testimonial7 from '@/assets/images/home/testimonial-7.png';
 import testimonial8 from '@/assets/images/home/testimonial-8.png';
 import testimonialIcon from '@/assets/utils/testimonial-icon.png';
 import { useCarousel } from '@/hooks/use-carousel';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 export default function HomeTestimonialsSection() {
   const { emblaRef, onDotClick, selectedIndex } = useCarousel();
+  const { ref, controls } = useCustomAnimation();
 
   return (
-    <section className='relative flex w-full flex-col items-center gap-6 overflow-hidden bg-gray-100 p-8 md:p-16 lg:gap-12 lg:p-32'>
+    <motion.section
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className='relative flex w-full flex-col items-center gap-6 overflow-hidden bg-gray-100 p-8 md:p-16 lg:gap-12 lg:p-32'
+    >
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.5 }}
         className='absolute left-10 w-24 translate-y-[200px]'
         src={testimonial1}
         alt='Imágen ilustrativa'
@@ -35,13 +41,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.75 }}
         className='absolute left-20 w-20 translate-y-[300px] lg:left-40'
         src={testimonial2}
         alt='Imágen ilustrativa'
@@ -50,13 +49,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 1 }}
         className='absolute bottom-96 left-16 w-16 lg:left-24'
         src={testimonial3}
         alt='Imágen ilustrativa'
@@ -65,13 +57,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 1.25 }}
         className='absolute bottom-40 left-10 w-24 lg:left-32'
         src={testimonial4}
         alt='Imágen ilustrativa'
@@ -80,13 +65,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 1.5 }}
         className='absolute right-8 w-16 translate-y-[150px] lg:right-40'
         src={testimonial5}
         alt='Imágen ilustrativa'
@@ -95,13 +73,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 1.75 }}
         className='absolute right-10 w-24 translate-y-[300px]'
         src={testimonial6}
         alt='Imágen ilustrativa'
@@ -110,13 +81,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 2 }}
         className='absolute bottom-80 right-4 w-20 lg:right-40'
         src={testimonial7}
         alt='Imágen ilustrativa'
@@ -125,13 +89,6 @@ export default function HomeTestimonialsSection() {
         height={1000}
       />
       <Image
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 2.25 }}
         className='absolute bottom-20 right-10 w-16 lg:right-10'
         src={testimonial8}
         alt='Imágen ilustrativa'
@@ -190,6 +147,6 @@ export default function HomeTestimonialsSection() {
           styles='mx-auto'
         />
       </div>
-    </section>
+    </motion.section>
   );
 }

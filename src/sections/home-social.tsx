@@ -1,14 +1,30 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { SOCIAL_ITEMS } from '@/constants/social';
+import { motion } from 'framer-motion';
 import social1 from '@/assets/images/home/social-1.png';
 import social2 from '@/assets/images/home/social-2.png';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import whiteListon from '@/assets/utils/liston-white.png';
 
 export default function HomeSocialSection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='flex flex-col items-center gap-4 p-8 md:p-16 lg:p-32 xl:flex-row xl:items-start xl:justify-center xl:gap-16'>
-      <div className='grid max-w-[430px] grid-cols-5 lg:max-w-[520px] xl:gap-4'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className='grid max-w-[430px] grid-cols-5 lg:max-w-[520px] xl:gap-4'
+      >
         <Image
           src={whiteListon}
           alt='Imágen ilustrativa'
@@ -33,16 +49,16 @@ export default function HomeSocialSection() {
           quality={100}
           className='col-span-4 max-w-52 -translate-y-12 duration-300 ease-in-out hover:scale-105 lg:max-w-96 xl:max-w-72'
         />
-      </div>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
+      </motion.div>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
         className='flex max-w-[820px] flex-col items-center gap-4 lg:items-start'
       >
         <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm lg:text-lg'>
@@ -84,7 +100,7 @@ export default function HomeSocialSection() {
         >
           Descubre más
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 }

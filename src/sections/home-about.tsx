@@ -1,13 +1,29 @@
+'use client';
+
 import { ABOUT_ITEMS } from '@/constants/about-items';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SecondaryCarousel } from '@/components/carousel';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 export default function HomeAboutSection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='flex flex-col gap-8 p-8 md:mx-auto md:max-w-[820px] xl:max-w-screen-lg xl:gap-12 2xl:max-w-screen-xl'>
       <SecondaryCarousel />
-      <div className='flex items-start gap-4 lg:gap-8'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ type: 'spring', duration: 1.5, delay: 0.65 }}
+        className='flex items-start gap-4 lg:gap-8'
+      >
         <div className='flex flex-col gap-4'>
           <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm'>
             HISTORIA
@@ -56,7 +72,7 @@ export default function HomeAboutSection() {
             })}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

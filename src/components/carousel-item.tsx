@@ -6,6 +6,7 @@ import Link from 'next/link';
 import circle from '@/assets/utils/circle-yellow.png';
 import liston from '@/assets/utils/liston-blue.png';
 import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 type Props = {
   title: string;
@@ -20,6 +21,8 @@ export default function CarouselItem({
   description,
   image,
 }: Props) {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <div
       id='slider'
@@ -66,14 +69,24 @@ export default function CarouselItem({
         quality={100}
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
         transition={{ duration: 0.5, delay: 0.5 }}
         className='absolute bottom-14 flex items-center gap-4 rounded-lg bg-white px-4 py-1 md:bottom-10 lg:bottom-20 lg:px-8 lg:py-2 xl:py-4'
       >
         <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           transition={{
             duration: 2,
             delay: 0.75,
@@ -85,8 +98,13 @@ export default function CarouselItem({
           36
         </motion.span>
         <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           transition={{ duration: 0.5, delay: 1.25 }}
           className='text-[10px] font-semibold text-black lg:text-[14px] 2xl:text-base'
         >
@@ -99,16 +117,26 @@ export default function CarouselItem({
       </motion.div>
       <div className='flex flex-col items-center gap-4 lg:items-start lg:gap-6'>
         <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           transition={{ duration: 1, delay: 0.5 }}
           className='text-xs font-semibold tracking-[8px] text-blue-200 lg:text-lg xl:text-xl 2xl:text-2xl'
         >
           {subtitle}
         </motion.span>
         <motion.span
-          initial={{ opacity: 0, translateX: -150 }}
-          animate={{ opacity: 1, translateX: 0 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0, translateX: -150 },
+            visible: { opacity: 1, translateX: 0 },
+          }}
           transition={{
             duration: 1.8,
             type: 'spring',
@@ -120,8 +148,13 @@ export default function CarouselItem({
           {title}
         </motion.span>
         <motion.p
-          initial={{ opacity: 0, translateX: -150 }}
-          animate={{ opacity: 1, translateX: 0 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0, translateX: -150 },
+            visible: { opacity: 1, translateX: 0 },
+          }}
           transition={{
             duration: 1.8,
             type: 'spring',
@@ -134,8 +167,13 @@ export default function CarouselItem({
         </motion.p>
         <motion.div
           className='lg:mt-8'
-          initial={{ opacity: 0, translateX: -120 }}
-          animate={{ opacity: 1, translateX: 0 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0, translateX: -120 },
+            visible: { opacity: 1, translateX: 0 },
+          }}
           transition={{
             duration: 1.8,
             type: 'spring',
@@ -162,8 +200,13 @@ export default function CarouselItem({
           />
         </div>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className='absolute flex h-fit w-16 flex-col items-center gap-4 rounded-lg bg-white px-3 py-1.5 lg:w-24 lg:translate-x-2 lg:translate-y-12 lg:px-6 lg:py-3 xl:w-40 xl:px-12 xl:py-6 2xl:translate-x-24 2xl:translate-y-12'
         >

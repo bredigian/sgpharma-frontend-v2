@@ -7,24 +7,27 @@ import Dropdown from '@/components/dropdown';
 import Image from 'next/image';
 import Link from 'next/link';
 import faqImage from '@/assets/images/home/faqs.png';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 import { useDropdown } from '@/hooks/use-dropdown';
 
 export default function HomeFaqsSection() {
   const { active, handleActive } = useDropdown();
+  const { ref, controls } = useCustomAnimation();
 
   return (
-    <section className='flex w-full flex-col items-center bg-gray-100 p-8 md:p-16 lg:p-32'>
-      <div
-        // ref={ref}
-        // initial='hidden'
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className='flex max-w-[1200px] -translate-y-60 flex-col items-center gap-8 rounded-2xl bg-yellow-sgpharma p-8 md:p-16 lg:flex-row lg:p-24'
-      >
+    <motion.section
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className='flex w-full flex-col items-center bg-gray-100 p-8 md:p-16 lg:p-32'
+    >
+      <div className='flex max-w-[1200px] -translate-y-60 flex-col items-center gap-8 rounded-2xl bg-yellow-sgpharma p-8 md:p-16 lg:flex-row lg:p-24'>
         <div className='flex flex-col items-center gap-4 lg:w-3/4 lg:items-start'>
           <span className='text-center text-xs font-semibold tracking-[5px] text-blue-300 md:text-sm lg:text-start lg:text-base'>
             DESCUBRE LA EXCELENCIA FARMACÉUTICA
@@ -103,6 +106,6 @@ export default function HomeFaqsSection() {
           })}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 }

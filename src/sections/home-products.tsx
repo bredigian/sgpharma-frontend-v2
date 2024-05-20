@@ -7,17 +7,7 @@ export default async function HomeProductsSection() {
   const favorites = (await getFavorites()) as IFavoriteProduct[] | Error;
 
   return (
-    <section
-      // ref={ref}
-      // initial='hidden'
-      // animate={controls}
-      // variants={{
-      //   visible: { opacity: 1 },
-      //   hidden: { opacity: 0 },
-      // }}
-      // transition={{ duration: 0.5, delay: 0.25 }}
-      className='3xl:w-[75%] mb-52 flex w-full flex-col items-center gap-24 p-8 lg:p-16'
-    >
+    <section className='3xl:w-[75%] mb-52 flex w-full flex-col items-center gap-24 p-8 lg:p-16'>
       <div className='flex w-full flex-col items-center gap-4'>
         <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm lg:text-base'>
           PRODUCTOS

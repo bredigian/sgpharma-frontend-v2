@@ -8,17 +8,7 @@ export default async function HomeNewsSection() {
 
   return (
     <section className='flex w-full flex-col items-center justify-around gap-8 p-8 md:flex-row md:items-start md:p-16 lg:p-32 xl:items-center xl:gap-16'>
-      <div
-        //   ref={ref}
-        //   initial='hidden'
-        //   animate={controls}
-        //   variants={{
-        //     visible: { opacity: 1 },
-        //     hidden: { opacity: 0 },
-        //   }}
-        //   transition={{ duration: 0.5, delay: 0.25 }}
-        className='flex flex-col items-center gap-4 md:items-start'
-      >
+      <div className='flex flex-col items-center gap-4 md:items-start'>
         <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm lg:text-base'>
           NOTICIAS
         </span>

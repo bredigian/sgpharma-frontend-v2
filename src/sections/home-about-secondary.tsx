@@ -1,21 +1,27 @@
+'use client';
+
 import Card from '@/components/card';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TARGETS } from '@/constants/targets';
+import { motion } from 'framer-motion';
+import { useCustomAnimation } from '@/hooks/use-animation';
 
 export default function HomeAboutSecondarySection() {
+  const { ref, controls } = useCustomAnimation();
+
   return (
     <section className='flex w-full flex-col items-center gap-4 bg-gray-100 p-8 lg:p-24'>
-      <div
-        // ref={ref}
-        // initial="hidden"
-        // animate={controls}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.25 }}
         className='flex flex-col items-center gap-4 p-8 lg:p-16 xl:gap-6'
       >
         <span className='text-xs font-semibold tracking-[5px] text-blue-200 md:text-sm lg:text-base'>
@@ -29,16 +35,16 @@ export default function HomeAboutSecondarySection() {
           productos, permite mantener procesos ágiles frente al dinamismo del
           mercado, ofreciendo productos innovadores y vanguardistas.
         </p>
-      </div>
-      <div
-        // ref={ref2}
-        // initial='hidden'
-        // animate={controls2}
-        // variants={{
-        //   visible: { opacity: 1 },
-        //   hidden: { opacity: 0 },
-        // }}
-        // transition={{ duration: 0.5, delay: 0.25 }}
+      </motion.div>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.5, delay: 0.5 }}
         className='flex flex-wrap items-center justify-center gap-6 p-8 lg:p-16'
       >
         {TARGETS.map((target) => {
@@ -75,7 +81,7 @@ export default function HomeAboutSecondarySection() {
             </Card>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }
