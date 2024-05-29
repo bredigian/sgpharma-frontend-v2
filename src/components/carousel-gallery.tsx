@@ -25,11 +25,10 @@ export default function CarouselGallery({ data }: Props) {
             <Image
               className='h-full w-full select-none object-contain'
               src={item.URL}
-              alt={`Imágen de detalle ${null}`}
+              alt={`Imágen de detalle ${item.ID}`}
               width={1000}
               height={1000}
               quality={100}
-              onError={() => revalidateCache()}
             />
           </div>
         ))}
