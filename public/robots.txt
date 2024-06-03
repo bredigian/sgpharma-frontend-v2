@@ -1,1 +1,7 @@
-User-Agent: *
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /products/
+Allow: /products/*
+Allow: /social/
+Allow: /contact/
