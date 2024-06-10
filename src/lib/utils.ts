@@ -40,6 +40,7 @@ export const toAPI = async ({
       body: body ?? undefined,
       headers: headers ?? undefined,
       next: {
+        revalidate: 43200,
         tags: tags ?? undefined,
       },
     });
